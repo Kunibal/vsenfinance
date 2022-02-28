@@ -1,24 +1,40 @@
-# README
+VSEN Finance
+飲食店様に利用していただく、通信販売及び出納管理できるサービスです。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+サイト概要
+ECサイトの管理はもちろん、店内での収支も管理できるサイトです。
+飲食店様がお店についての様々な情報を分析できます。
 
-Things you may want to cover:
+サイトテーマ
+・お客様側はECサイトで購入ができる
+・管理者側はECサイトの販売、管理ができる
+・店内の収支を入力し、売上傾向をグラフ化することで管理者側で分析することはできる
 
-* Ruby version
+テーマを選んだ理由
+個人経営のお店では、ECサイトのみの収支管理ソフトや、店内のみでの収支管理ソフトなど、
+別々にソフトを使用していることが多いため、これらを一本化したアプリを提供したいと思いました。
+さらに、使いやすく細い分析の可能なアプリが作りたいと思いました。
 
-* System dependencies
 
-* Configuration
+ターゲットユーザ
+個人経営などの飲食店をメインとする小売業者
 
-* Database creation
+主な利用シーン
+エンドユーザー側：ECサイトのご利用
+小売業者側：ECサイトでの販売、店舗の収支管理
 
-* Database initialization
+設計書
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/1W_ZQPlvlL5KFiAMEGxC2OHF7099HQQocAUBZOHtJRFQ/edit#gid=0
 
-* Deployment instructions
+開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* ...
+使用素材
+www.unsplash.com
