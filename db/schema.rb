@@ -32,10 +32,12 @@ ActiveRecord::Schema.define(version: 2022_03_03_060713) do
     t.datetime "remember_created_at"
     t.string "last_name"
     t.string "first_name"
-    t.integer "postal_code"
-    t.integer "prefecture_code"
-    t.string "city"
-    t.string "block"
+    t.string "last_name_kana"
+    t.string "first_name_kana"
+    t.integer "postal_code", null: false
+    t.integer "prefecture_code", null: false
+    t.string "city", null: false
+    t.string "block", null: false
     t.string "building_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

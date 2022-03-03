@@ -34,10 +34,12 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
 
       t.string :last_name
       t.string :first_name
-      t.integer :postal_code
-      t.integer :prefecture_code
-      t.string :city
-      t.string :block
+      t.string :last_name_kana
+      t.string :first_name_kana
+      t.integer :postal_code, null: false
+      t.integer :prefecture_code, null: false
+      t.string :city, null: false
+      t.string :block, null: false
       t.string :building_name
 
       t.timestamps null: false

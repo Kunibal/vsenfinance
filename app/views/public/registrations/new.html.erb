@@ -16,6 +16,16 @@
   </div>
 
   <div class="field">
+    <%= f.label :last_name_kana %><br />
+    <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana", placeholder: 'セイ' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :first_name_kana %><br />
+    <%= f.text_field :first_name_kana, autocomplete: "first_name_kana", placeholder: 'メイ' %>
+  </div>
+
+  <div class="field">
     <%= f.label :postal_code %><br />
     〒 <%= f.text_field :postal_code, autocomplete: "postal_code", placeholder: '郵便番号' %>
   </div>
