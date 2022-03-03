@@ -1,11 +1,48 @@
+<script type="text/javascript" src="//jpostal-1006.appspot.com/jquery.jpostal.js"></script>
+
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", placeholder: '姓' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autocomplete: "first_name", placeholder: '名' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :postal_code %><br />
+    〒 <%= f.text_field :postal_code, autocomplete: "postal_code", placeholder: '郵便番号' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :prefecture_code %><br />
+    <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city, autocomplete: "city", placeholder: '市区町村' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :block %><br />
+    <%= f.text_field :block, autocomplete: "block", placeholder: '丁目・番地' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :building_name %><br />
+    <%= f.text_field :building_name, autocomplete: "building_name", placeholder: '建物名' %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autocomplete: "email", placeholder: 'メールアドレス' %>
   </div>
 
   <div class="field">
@@ -13,12 +50,12 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: 'パスワード' %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'パスワード再入力' %>
   </div>
 
   <div class="actions">
