@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
-  get 'homes/homepage'
-  root to: 'homes#top'
-  get 'homes/about'
-
   # 管理者用のログイン
-  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+  devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
 
@@ -13,4 +9,10 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
+
+  get 'homes/homepage'
+  root to: 'homes#top'
+  get 'homes/about'
+
+  resources :items
 end
