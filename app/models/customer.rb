@@ -10,5 +10,4 @@ class Customer < ApplicationRecord
   validates :prefecture_code, presence: true
   validates :city, presence: true
   validates :block, presence: true
-  validates :building_name
 end
