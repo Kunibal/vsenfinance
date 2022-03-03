@@ -35,7 +35,7 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
       t.string :last_name
       t.string :first_name
       t.integer :postal_code
-      t.string :prefecture_code
+      t.integer :prefecture_code
       t.string :city
       t.string :block
       t.string :building_name
