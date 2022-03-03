@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get 'homes/homepage'
   root to: 'homes#top'
-  get 'homes/about'
+  get '/about', to: 'homes#about', as: 'about'
 
   resources :items
 end
