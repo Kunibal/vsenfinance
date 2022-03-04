@@ -19,3 +19,4 @@ ActiveStorage.start()
 
 import "jquery.jpostal"
 import "automate_address"
+import "nav"

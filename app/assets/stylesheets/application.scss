@@ -13,3 +13,109 @@
  */
 
 @import "bootstrap";
+
+// NavBarが出ないように
+body {
+  overflow-x: hidden;
+}
+
+// utility class
+.flex {
+  display: flex;
+  // Use gap custom property to change at different sizes
+  gap: var(--gap, 1rem);
+}
+
+// NavBarカスタマイズ
+
+.logo {
+  margin-block: 1rem;
+  margin-left: 2rem;
+}
+
+// 大きい画面で見えないようにする
+.mobile-nav-toggle {
+  display: none;
+}
+
+// flexを使ってLOGOとNavを同じ行にする
+.primary-header {
+  align-items: center;
+  justify-content: space-between;
+}
+
+// Navを真ん中にする
+.primary-navigation {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  background: hsla(0, 0%, 100%, 0.5);
+}
+
+// 対応していないブラウザのため
+@supports (backdrop-filter: blur(1rem)) {
+  .primary-navigation {
+    background: hsla(0, 0%, 100%, 0.1);
+    backdrop-filter: blur(1rem);
+  }
+}
+
+// Rubyの<%= link_to %>がHTMLに変更され、<a>タグをカスタマイズ
+.primary-navigation a {
+  text-decoration: none;
+}
+
+// Responsive対応
+@media (max-width: 35em) {
+  .primary-navigation {
+    // gap from flex utility class
+    --gap: 2em;
+
+
+    position: fixed;
+    z-index: 1000;
+    // logical property: 30% to set it off 30% to the right
+    inset: 0 0 0 30%;
+
+    // 小さい画面では縦に並べる
+    flex-direction: column;
+    padding: 10rem 3em;
+
+    // Toggleアニメーション用
+    transform: translateX(100%);
+    transition: transform 300ms ease-out;
+  }
+
+  .primary-navigation[data-visible="true"] {
+    transform: translateX(0%);
+  }
+
+  .mobile-nav-toggle {
+    // 小さい画面で見えるようにする
+    display: block;
+
+    position: absolute;
+    z-index: 9999;
+    background: url('menu-icon.svg');
+    background-repeat: no-repeat;
+    width: 2rem;
+    border: 0;
+    aspect-ratio: 1;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .mobile-nav-toggle[aria-expanded="true"] {
+    background: url('close-icon.svg');
+    background-repeat: no-repeat;
+  }
+}
+
+@media (min-width: 35em) {
+  .primary-navigation {
+    --gap: 3rem;
+    padding-block: 1rem;
+    padding-inline: clamp(3rem, 10vw, 10rem);
+  }
+}
