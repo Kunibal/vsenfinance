@@ -1,2 +1,38 @@
-<h1>Customers#edit</h1>
-<p>Find me in app/views/customers/edit.html.erb</p>
+<%= form_with model: @customer, local:true do |f| %>
+  <!--名前の列-->
+  <div>
+    <%= f.label :氏名 %>
+    <%= f.text_field :last_name %>
+    <%= f.text_field :first_name %>
+  </div>
+  <!--名前フリガナの列-->
+  <div>
+    <%= f.label :フリガナ %>
+    <%= f.text_field :last_name_kana %>
+    <%= f.text_field :first_name_kana %>
+  </div>
+  <!--郵便番号の列-->
+  <div>
+    <%= f.label :郵便番号 %>
+    <%= f.text_field :postcode %>
+  </div>
+  <!--住所の列-->
+  <div>
+    <%= f.label :住所 %>
+    <%= f.text_field :address %>
+  </div>
+  <!--電話番号の列-->
+  <div>
+    <%= f.label :電話番号 %>
+    <%= f.text_field :phone_number %>
+  </div>
+  <!--メールアドレスの列-->
+  <div>
+    <%= f.label :メールアドレス %>
+    <%= f.email_field :email %>
+  </div>
+  <!--確認ボタン、退会ボタンの列-->
+  <div>
+    <%= f.submit "編集内容を保存" %>
+  </div>
+<% end %>
