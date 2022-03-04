@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   get '/about', to: 'homes#about', as: 'about'
   get '/contact', to: 'homes#contact', as: 'contact'
 
+  resources :customers, only: [:index, :show, :edit, :update]
   resources :items
 end

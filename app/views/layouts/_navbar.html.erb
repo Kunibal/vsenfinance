@@ -6,19 +6,36 @@
   <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false"></button>
 
   <nav>
+    <% if current_customer %>
     <ul id="primary-navigation" data-visible="false" class="primary-navigation flex">
       <li>
         <%= link_to "Home", root_path, class: "text-white" %>
       </li>
       <li>
-        <%= link_to "MyPage", root_path, class: "text-white" %>
+        <%= link_to "MyPage", customer_path(current_customer), class: "text-white" %>
       </li>
       <li>
-        <%= link_to "Products", root_path, class: "text-white" %>
+        <%= link_to "Products", items_path, class: "text-white" %>
       </li>
       <li>
-        <%= link_to "Log out", root_path, class: "text-white" %>
+        <%= link_to "Log out", destroy_customer_session_path, method: :delete, class: "text-white" %>
       </li>
     </ul>
+    <% else %>
+    <ul id="primary-navigation" data-visible="false" class="primary-navigation flex">
+      <li>
+        <%= link_to "Home", root_path, class: "text-white" %>
+      </li>
+      <li>
+        <%= link_to "About", about_path, class: "text-white" %>
+      </li>
+      <li>
+        <%= link_to "Log in", new_customer_session_path, class: "text-white" %>
+      </li>
+      <li>
+        <%= link_to "Sign up", new_customer_registration_path, class: "text-white" %>
+      </li>
+    </ul>
+    <% end %>
   </nav>
 </header>
