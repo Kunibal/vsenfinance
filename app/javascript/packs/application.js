@@ -14,7 +14,7 @@ import "jquery"
 import "@fortawesome/fontawesome-free/css/all"
 
 Rails.start()
-Turbolinks.start()
+// Turbolinks.start()
 ActiveStorage.start()
 
 import "jquery.jpostal"
