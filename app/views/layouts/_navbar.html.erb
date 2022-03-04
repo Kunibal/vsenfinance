@@ -6,7 +6,22 @@
   <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false"></button>
 
   <nav>
-    <% if current_customer %>
+    <% if current_admin %>
+    <ul id="primary-navigation" data-visible="false" class="primary-navigation flex">
+      <li>
+        <%= link_to "Home", root_path, class: "text-white #{'bold-text' if current_page?(root_path)}" %>
+      </li>
+      <li>
+        <%= link_to "Customers", customers_path, class: "text-white #{'bold-text' if current_page?(customers_path)}" %>
+      </li>
+      <li>
+        <%= link_to "Products", items_path, class: "text-white #{'bold-text' if current_page?(items_path)}" %>
+      </li>
+      <li>
+        <%= link_to "Log out", destroy_admin_session_path, method: :delete, class: "text-white" %>
+      </li>
+    </ul>
+    <% elsif current_customer %>
     <ul id="primary-navigation" data-visible="false" class="primary-navigation flex">
       <li>
         <%= link_to "Home", root_path, class: "text-white #{'bold-text' if current_page?(root_path)}" %>

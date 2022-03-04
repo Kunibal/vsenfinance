@@ -1,2 +1,11 @@
-<h1>Customers#show</h1>
-<p>Find me in app/views/customers/show.html.erb</p>
+<%= @customer.last_name %>
+<%= @customer.first_name %>
+<% if !current_customer %>
+<%= @customer.last_name_kana %>
+<%= @customer.first_name_kana %>
+<% end %>
+<%= @customer.postal_code %>
+<%= @customer.prefecture_code %>
+<%= @customer.city %>
+<%= @customer.block %>
+<%= @customer.building_name %>
