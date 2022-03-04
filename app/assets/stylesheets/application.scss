@@ -16,7 +16,13 @@
 
 // NavBarが出ないように
 body {
+  margin: 0;
   overflow-x: hidden;
+
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
 }
 
 // utility class
@@ -26,7 +32,11 @@ body {
   gap: var(--gap, 1rem);
 }
 
-// NavBarカスタマイズ
+// NavBarデザイン
+
+header {
+  background: #1E1E24;
+}
 
 .logo {
   margin-block: 1rem;
@@ -71,6 +81,7 @@ body {
   .primary-navigation {
     // gap from flex utility class
     --gap: 2em;
+    background: hsla(0, 0%, 0%, 0.5);
 
 
     position: fixed;
@@ -119,3 +130,76 @@ body {
     padding-inline: clamp(3rem, 10vw, 10rem);
   }
 }
+
+
+// footerデザイン
+
+footer {
+  background: #1E1E24;
+  color: #fff;
+
+  // stick footer to bottom
+  margin-top: auto;
+  flex-direction: column;
+}
+
+// footer部分
+.footer1 {
+  margin-inline: 1em;
+  padding: 2em;
+  border-bottom: 2px solid;
+  border-color: #4C4C4C;
+  justify-content: space-evenly;
+}
+
+// copyright部分
+.footer2 {
+  margin: 0 auto;
+  padding: 0.5em;
+}
+
+
+// social media color design
+.insta {
+  color: transparent;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background-clip: text;
+  -webkit-background-clip: text;
+ }
+
+// keep design while hovering
+.insta:hover {
+  color: transparent;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background-clip: text;
+  -webkit-background-clip: text;
+ }
+
+ .twitter {
+   color: #00aced;
+ }
+
+ .list1 {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+ }
+
+ .list2 {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+ }
+
+ .list2 li {
+   padding-block: 0.5em;
+   align-items: center;
+ }
+
+ @media (max-width: 35rem) {
+   .list2 {
+     flex-direction: column;
+   }
+ }

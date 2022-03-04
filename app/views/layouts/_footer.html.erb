@@ -1,0 +1,50 @@
+<footer class="flex">
+  <!--footer1 with information-->
+  <div class="footer1 flex">
+    <div class="flex">
+      <div>
+        <%= image_tag("abbeybaby_wh.png", size: "70x70") %>
+      </div>
+      <ul class="list1">
+        <li class="pb-2">
+          <%= link_to "Home", root_path, class: 'text-decoration-none text-white' %>
+        </li>
+        <li>
+          <%= link_to "About", about_path, class: 'text-decoration-none text-white' %>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <span>Social Media</span>
+      <ul class="list2 flex">
+        <li>
+          <%= link_to "#", class: 'text-decoration-none insta' do %>
+            <i class="fa-brands fa-instagram fa-lg px-2"></i>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "#", class: 'text-decoration-none' do %>
+            <i class="twitter fa-brands fa-twitter fa-lg px-2"></i>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <span>Opening Hours</span>
+      <div class="flex">
+        <p>
+        Mo - Fr<br>
+        11am - 7pm
+        </p>
+        <p>
+        Sa - So<br>
+        10am - 9pm
+        </p>
+      </div>
+    </div>
+  </div>
+  <!--footer2 with copyright-->
+  <div class="footer2">
+    <span>Copyright © 2022</span>
+  </div>
+</footer>
