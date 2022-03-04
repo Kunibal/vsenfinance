@@ -76,6 +76,10 @@ header {
   text-decoration: none;
 }
 
+.bold-text {
+  font-weight: bold;
+}
+
 // Responsive対応
 @media (max-width: 35em) {
   .primary-navigation {
