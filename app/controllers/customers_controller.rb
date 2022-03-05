@@ -4,7 +4,7 @@ class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update]
 
   def index
-    @customer = Customer.page(params[:page])
+    @customers = Customer.page(params[:page])
   end
 
   def show
