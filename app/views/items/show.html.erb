@@ -1,2 +1,12 @@
-<h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
+<div>
+  商品名
+  <%= @item.name %>
+</div>
+<div>
+  商品説明
+  <%= @item.description %>
+</div>
+<div>
+  税込価格
+  <%= @item.add_tax.to_s(:delimited) %>
+</div>

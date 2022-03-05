@@ -1,2 +1,15 @@
-<h1>Items#new</h1>
-<p>Find me in app/views/items/new.html.erb</p>
+<%= form_with model: @item, local: true do |f| %>
+  <div>
+    <%= f.label :商品名 %>
+    <%= f.text_field :name, placeholder: '商品名' %>
+  </div>
+  <div>
+    <%= f.label :商品説明 %>
+    <%= f.text_area :description, placeholder: '商品説明をこちらに' %>
+  </div>
+  <div>
+    <%= f.label :税抜価格 %>
+    <%= f.text_field :price %>
+  </div>
+  <%= f.submit "登録" %>
+<% end %>

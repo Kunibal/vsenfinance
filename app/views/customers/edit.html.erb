@@ -1,4 +1,4 @@
-<%= form_with model: @customer, local:true do |f| %>
+<%= form_with model: @customer, local: true do |f| %>
   <!--名前の列-->
   <div>
     <%= f.label :氏名 %>
@@ -16,21 +16,22 @@
     <%= f.label :郵便番号 %>
     <%= f.text_field :postal_code, autocomplete: "postal_code", placeholder: '郵便番号' %>
   </div>
-  <!--住所の列-->
+  <!--都道府県の列-->
   <div>
     <%= f.label :都道府県 %>
     <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name %>
   </div>
+  <!--市区町村の列-->
   <div>
     <%= f.label :市区町村 %>
     <%= f.text_field :city, autocomplete: "city", placeholder: '市区町村' %>
   </div>
-  <!--電話番号の列-->
+  <!--丁目・番地の列-->
   <div>
     <%= f.label :丁目・番地 %>
     <%= f.text_field :block, autocomplete: "block", placeholder: '丁目・番地' %>
   </div>
-
+  <!--建物の列-->
   <div>
     <%= f.label :建物名 %>
     <%= f.text_field :building_name, autocomplete: "building_name", placeholder: '建物名' %>
@@ -40,7 +41,7 @@
     <%= f.label :メールアドレス %>
     <%= f.email_field :email, autocomplete: "email", placeholder: 'メールアドレス' %>
   </div>
-  <!--確認ボタン、退会ボタンの列-->
+  <!--確認ボタンの列-->
   <div>
     <%= f.submit "保存" %>
   </div>
