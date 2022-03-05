@@ -32,15 +32,4 @@ class CustomersController < ApplicationController
   def set_customer
     @customer = Customer.find(params[:id])
   end
-
-  # current customerとadminに許可与える
-  def ensure_correct_user
-    @customer = Customer.find(params[:id])
-    # 管理者は常に一人
-    @admin = Admin.find(1)
-    if @customer == current_customer || @admin == current_admin
-    else
-      redirect_to root_path(current_customer)
-    end
-  end
 end

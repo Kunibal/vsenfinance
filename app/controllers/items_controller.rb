@@ -1,8 +1,10 @@
 class ItemsController < ApplicationController
   before_action :authenticate_admin!, only: [:new, :edit]
+  before_action :ensure_correct_user, only: [:show]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
+    @items = Item.all
   end
 
   def new
@@ -34,6 +36,8 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    @item.destroy
+    redirect_to items_path
   end
 
   private
