@@ -2,37 +2,46 @@
   <!--名前の列-->
   <div>
     <%= f.label :氏名 %>
-    <%= f.text_field :last_name %>
-    <%= f.text_field :first_name %>
+    <%= f.text_field :last_name, autocomplete: "last_name", placeholder: '姓' %>
+    <%= f.text_field :first_name, autocomplete: "first_name", placeholder: '名' %>
   </div>
   <!--名前フリガナの列-->
   <div>
     <%= f.label :フリガナ %>
-    <%= f.text_field :last_name_kana %>
-    <%= f.text_field :first_name_kana %>
+    <%= f.text_field :last_name_kana, autocomplete: "last_name_kana", placeholder: 'セイ' %>
+    <%= f.text_field :first_name_kana, autocomplete: "first_name_kana", placeholder: 'メイ' %>
   </div>
   <!--郵便番号の列-->
   <div>
     <%= f.label :郵便番号 %>
-    <%= f.text_field :postcode %>
+    <%= f.text_field :postal_code, autocomplete: "postal_code", placeholder: '郵便番号' %>
   </div>
   <!--住所の列-->
   <div>
-    <%= f.label :住所 %>
-    <%= f.text_field :address %>
+    <%= f.label :都道府県 %>
+    <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name %>
+  </div>
+  <div>
+    <%= f.label :市区町村 %>
+    <%= f.text_field :city, autocomplete: "city", placeholder: '市区町村' %>
   </div>
   <!--電話番号の列-->
   <div>
-    <%= f.label :電話番号 %>
-    <%= f.text_field :phone_number %>
+    <%= f.label :丁目・番地 %>
+    <%= f.text_field :block, autocomplete: "block", placeholder: '丁目・番地' %>
+  </div>
+
+  <div>
+    <%= f.label :建物名 %>
+    <%= f.text_field :building_name, autocomplete: "building_name", placeholder: '建物名' %>
   </div>
   <!--メールアドレスの列-->
   <div>
     <%= f.label :メールアドレス %>
-    <%= f.email_field :email %>
+    <%= f.email_field :email, autocomplete: "email", placeholder: 'メールアドレス' %>
   </div>
   <!--確認ボタン、退会ボタンの列-->
   <div>
-    <%= f.submit "編集内容を保存" %>
+    <%= f.submit "保存" %>
   </div>
 <% end %>
