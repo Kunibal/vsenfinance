@@ -13,3 +13,7 @@
   税込価格
   <%= @item.add_tax.to_s(:delimited) %>
 </div>
+
+<% if current_admin %>
+  <%= link_to "編集", edit_item_path(@item) %>
+<% end %>

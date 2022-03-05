@@ -1,2 +1,23 @@
-<h1>Items#edit</h1>
-<p>Find me in app/views/items/edit.html.erb</p>
+<%= form_with model: @item, local: true do |f| %>
+  <div>
+    <%= f.label :商品画像 %>
+    <%= f.file_field :image, accept: "image/*" %>
+  </div>
+  <div>
+    <%= f.label :商品名 %>
+    <%= f.text_field :name, placeholder: '商品名' %>
+  </div>
+  <div>
+    <%= f.label :商品説明 %>
+    <%= f.text_area :description, placeholder: '商品説明をこちらに' %>
+  </div>
+  <div>
+    <%= f.label :税抜価格 %>
+    <%= f.text_field :price %>
+  </div>
+  <%= f.submit "保存" %>
+<% end %>
+
+<%= link_to "削除", item_path(@item), method: :delete %>
+<%= link_to "商品詳細", item_path(@item) %>
+<%= link_to "商品一覧", items_path %>
