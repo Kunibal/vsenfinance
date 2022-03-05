@@ -3,6 +3,12 @@ class Item < ApplicationRecord
   validates :description, presence: true
   validates :price, presence: true
 
+  has_one_attached :image
+
+  def item_image
+    image.attached? ? image : 'no_image.jpg'
+  end
+
   def add_tax
     (self.price * 1.10).round
   end
