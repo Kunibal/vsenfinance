@@ -1,1 +1,22 @@
 <%= render 'homes/slideshow' %>
+
+<!--新着商品-->
+<h2>新着商品</h2>
+<div>
+  <% @items.each do |item| %>
+    <div>
+      <%= link_to item_path(item) do %>
+      <%= image_tag item.item_image.variant(resize_to_fill: [200, 200]) %>
+      <% end %>
+    </div>
+    <div>
+      <%= item.name %>
+    </div>
+    <div>
+      <%= item.description %>
+    </div>
+    <div>
+      <%= item.add_tax %>
+    </div>
+  <% end %>
+</div>
