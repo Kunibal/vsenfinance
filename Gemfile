@@ -60,3 +60,6 @@ gem 'bootstrap', '~> 5.1.3'
 
 # 住所自動入力
 gem 'jp_prefecture'
+
+# ページネーション
+gem 'kaminari'
