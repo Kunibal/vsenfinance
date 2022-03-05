@@ -13,6 +13,7 @@
  */
 
 @import "bootstrap";
+@import "skippr.css";
 
 // NavBarが出ないように
 body {
@@ -207,3 +208,30 @@ footer {
      flex-direction: column;
    }
  }
+
+
+// slideshow用
+
+.image1 {
+  background-image: url("cupcake1.jpg");
+}
+
+.image2 {
+  background-image: url("cupcake2.jpg");
+}
+
+.image3 {
+  background-image: url("cupcake3.jpg");
+}
+
+.image4 {
+  background-image: url("cupcake4.jpg");
+  object-fit: contain;
+}
+
+#container {
+  margin-top: 1em;
+  margin-inline: auto;
+  height: 75vh;
+  width: 95%;
+}

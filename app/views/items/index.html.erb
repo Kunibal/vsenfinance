@@ -1,7 +1,7 @@
 <% @items.each do |item| %>
   <div>
     <%= link_to item_path(item) do %>
-      <%= image_tag item.item_image, size: "200x200" %>
+      <%= image_tag item.item_image.variant(resize_to_fill: [200, 200]) %>
     <% end %>
   </div>
   <div>
