@@ -17,4 +17,8 @@ Rails.application.routes.draw do
 
   resources :customers, only: [:index, :show, :edit, :update]
   resources :items
+  
+  # カート用のroutes
+  get 'carts/:id' => "carts#show", as: "cart"
+  delete 'carts/:id' => "carts#destroy"
 end
