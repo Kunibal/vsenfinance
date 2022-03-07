@@ -1,2 +1,13 @@
-<h1>Orders#new</h1>
-<p>Find me in app/views/orders/new.html.erb</p>
+<%= form_with model: @order, url: confirm_order_path, method: :get do |f| %>
+
+<!--select payment_method here-->
+
+<%= f.label 'お客様のご住所' %>
+<%= current_customer.last_name + current_customer.first_name %>
+<%= current_customer.postal_code.to_s + current_customer.prefecture_name + current_customer.city + current_customer.block %>
+<% if !current_customer.building_name.empty? %>
+  <%= current_customer.building_name %>
+<% end %>
+
+<%= f.submit %>
+<% end %>
