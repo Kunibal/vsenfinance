@@ -5,12 +5,18 @@
     <% end %>
   </div>
   <div>
+    商品名
     <%= item.name %>
   </div>
   <div>
+    商品説明
     <%= item.description %>
   </div>
   <div>
-    <%= item.add_tax %>
+    税込価格
+    <%= item.add_tax.to_s(:delimited) %>
+  </div>
+  <div>
+    <%= button_to "カートに入れる", order_items_path(:item_id => item.id) %>
   </div>
 <% end %>
