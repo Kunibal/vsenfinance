@@ -1,4 +1,6 @@
 class Item < ApplicationRecord
+  has_many :order_items, dependent: :destroy
+
   validates :name, presence: true
   validates :description, presence: true
   validates :price, presence: true
@@ -10,6 +12,6 @@ class Item < ApplicationRecord
   end
 
   def add_tax
-    (self.price * 1.10).round
+    (self.price * 1.10).round.to_s(:delimited)
   end
 end

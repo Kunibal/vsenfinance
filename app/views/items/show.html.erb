@@ -11,7 +11,10 @@
 </div>
 <div>
   税込価格
-  <%= @item.add_tax.to_s(:delimited) %>
+  <%= @item.add_tax %>
+</div>
+<div>
+  <%= button_to "カートに入れる", order_items_path(:item_id => item.id) %>
 </div>
 
 <% if current_admin %>
