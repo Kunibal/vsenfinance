@@ -18,6 +18,11 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    if @post.destroy
+      redirect_to request.referer
+    else
+      redirect_to root_path
+    end
   end
 
   private
