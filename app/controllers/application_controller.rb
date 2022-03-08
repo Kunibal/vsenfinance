@@ -7,13 +7,16 @@ class ApplicationController < ActionController::Base
   def current_cart
     if session[:cart_id]
       cart = Cart.find_by(:id => session[:cart_id])
+      # カートが存在していれば@current_cart変数に
       if cart.present?
         @current_cart = cart
       else
+        # なければ、nilにする
         session[:cart_id] = nil
       end
     end
 
+    # nilなら新しいカートを作成
     if session[:cart_id] == nil
       @current_cart = Cart.create
       session[:cart_id] = @current_cart.id

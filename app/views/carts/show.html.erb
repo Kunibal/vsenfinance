@@ -14,5 +14,7 @@
   <% end %>
 </ul>
 <h3>合計: <%= @cart.total_price.to_s(:delimited) %></h3>
-<%= link_to "Proceed to checkout", new_order_path %><br>
+<% if @cart.order_items.exists? %>
+  <%= link_to "Proceed to checkout", new_order_path %>
+<% end %>
 <%= link_to "Empty cart", cart_path(@current_cart), method: :delete, data: {confirm: "Are you sure?"} %>
