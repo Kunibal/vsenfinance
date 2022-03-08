@@ -14,7 +14,7 @@
   <%= @item.add_tax %>
 </div>
 <div>
-  <%= button_to "カートに入れる", order_items_path(:item_id => item.id) %>
+  <%= button_to "カートに入れる", order_items_path(:item_id => @item.id) %>
 </div>
 
 <% if current_admin %>

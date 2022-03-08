@@ -2,7 +2,8 @@
 
 <!--select payment_method here-->
 
-<%= f.label 'お客様のご住所' %>
+<%= f.radio_button :address, 1, checked: true %>
+<%= f.label :address_1, 'ご住所の選択' %>
 <%= current_customer.last_name + current_customer.first_name %>
 <%= current_customer.postal_code.to_s + current_customer.prefecture_name + current_customer.city + current_customer.block %>
 <% if !current_customer.building_name.empty? %>
