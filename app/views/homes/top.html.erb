@@ -23,3 +23,12 @@
     </div>
   <% end %>
 </div>
+
+<!--お知らせ一覧-->
+<h3>お知らせ</h3>
+<div>
+  <% @posts.each do |post| %>
+    <div><%= post.title %></div>
+    <div><%= post.body %></div>
+  <% end %>
+</div>
