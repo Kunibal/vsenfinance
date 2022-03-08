@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   get '/about', to: 'homes#about', as: 'about'
   get '/contact', to: 'homes#contact', as: 'contact'
 
+  # お知らせ用のroutes
+  get 'posts/edit', to: 'posts#edit'
+
   # カート用のroutes
   get 'carts/:id' => "carts#show", as: "cart"
   delete 'carts/:id' => "carts#destroy"

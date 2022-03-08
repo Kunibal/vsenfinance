@@ -3,7 +3,8 @@ class HomesController < ApplicationController
   end
 
   def top
-    @items = Item.order(created_at: :desc).limit(4)
+    @items = Item.order(created_at: :desc).limit(3)
+    @posts = Post.order(created_at: :desc).limit(6)
   end
 
   def about
