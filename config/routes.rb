@@ -16,18 +16,19 @@ Rails.application.routes.draw do
   get '/contact', to: 'homes#contact', as: 'contact'
 
   # お知らせ用のroutes
+  get 'posts', to: 'posts#index'
   get 'posts/edit', to: 'posts#edit'
 
   # カート用のroutes
-  get 'carts/:id' => "carts#show", as: "cart"
-  delete 'carts/:id' => "carts#destroy"
+  get 'carts/:id', to: "carts#show", as: "cart"
+  delete 'carts/:id', to: "carts#destroy"
 
   # order_items用のroutes
-  post 'order_items' => 'order_items#create'
-  get 'order_items/:id' => 'order_items#show', as: 'order_item'
-  delete 'order_items/:id' => 'order_items#destroy'
-  post 'order_items/:id/add' => 'order_items#add_quantity', as: 'order_item_add'
-  post 'order_items/:id/reduce' => 'order_items#reduce_quantity', as: 'order_item_reduce'
+  post 'order_items', to: 'order_items#create'
+  get 'order_items/:id', to: 'order_items#show', as: 'order_item'
+  delete 'order_items/:id', to: 'order_items#destroy'
+  post 'order_items/:id/add', to: 'order_items#add_quantity', as: 'order_item_add'
+  post 'order_items/:id/reduce', to: 'order_items#reduce_quantity', as: 'order_item_reduce'
 
   resources :customers, only: [:index, :show, :edit, :update]
   resources :items
