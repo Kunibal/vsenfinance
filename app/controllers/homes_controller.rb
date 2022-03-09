@@ -16,6 +16,7 @@ class HomesController < ApplicationController
   end
 
   def dashboard
+    @posts = Post.order(created_at: :desc).limit(4)
     @post = Post.new
   end
 end

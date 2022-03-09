@@ -21,24 +21,4 @@
 </div>
 
 <!--お知らせ一覧(六つまで表示）-->
-<h3>お知らせ</h3>
-<ul>
-<% @posts.each do |post| %>
-  <li>
-    <%= post.created_at.strftime("%Y-%m-%d") %>
-    <%= post.title %>
-    <%= post.body %>
-    <% if current_admin %>
-      <%= link_to "編集", edit_post_path(post.id) %>
-      <%= link_to "削除", post_path(post.id), method: :delete, data: { confirm: "本当に削除しますか。" } %>
-    <% end %>
-  </li>
-<% end %>
-</ul>
-
-<!--お知らせ履歴一覧-->
-<div>
-  <% if @posts.exists? %>
-    <%= link_to "お知らせ履歴", posts_path %>
-  <% end %>
-</div>
+<%= render 'posts/post_all' %>

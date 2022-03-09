@@ -1,3 +1,6 @@
+<!--お知らせ一覧（四つまで表示）-->
+<%= render 'posts/post_all' %>
+
 <%= form_with model: @post, local: true do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %><br>
