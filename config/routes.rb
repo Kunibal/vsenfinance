@@ -9,8 +9,9 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
-
+  # PFのホームページ
   get 'homes/homepage'
+
   root to: 'homes#top'
   get '/about', to: 'homes#about', as: 'about'
   get '/contact', to: 'homes#contact', as: 'contact'
