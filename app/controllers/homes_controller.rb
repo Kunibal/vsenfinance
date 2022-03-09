@@ -1,4 +1,6 @@
 class HomesController < ApplicationController
+  before_action :authenticate_admin!, only: [:dashboard]
+
   def homepage
   end
 
@@ -11,5 +13,8 @@ class HomesController < ApplicationController
   end
 
   def contact
+  end
+
+  def dashboard
   end
 end

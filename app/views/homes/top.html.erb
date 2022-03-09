@@ -37,6 +37,8 @@
 </ul>
 
 <!--お知らせ履歴一覧-->
-<% if @posts.exists? %>
-  <%= link_to "お知らせ履歴", posts_path %>
-<% end %>
+<div>
+  <% if @posts.exists? %>
+    <%= link_to "お知らせ履歴", posts_path %>
+  <% end %>
+</div>

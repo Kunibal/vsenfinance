@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   }
   # PFのホームページ
   get 'homes/homepage'
+  
+  
+  get 'admin/dashboard', to: 'homes#dashboard', as: 'dashboard'
 
   root to: 'homes#top'
   get '/about', to: 'homes#about', as: 'about'

@@ -89,8 +89,17 @@ header {
   font-weight: bold;
 }
 
-// Responsive対応
+// Responsive対応：小さい画面ではハンバーガーメニューになるように
 @media (max-width: 35em) {
+
+  .nav-text {
+    display: block;
+  }
+
+  .nav-icon {
+    display: none;
+  }
+
   .primary-navigation {
     // gap from flex utility class
     --gap: 2em;
@@ -136,11 +145,36 @@ header {
   }
 }
 
-@media (min-width: 35em) {
+@media (min-width: 35em) and (max-width: 45em) {
+  .primary-navigation {
+    --gap: 2rem;
+    padding-block: 1rem;
+    padding-inline: clamp(3rem, 10vw, 10rem);
+  }
+
+  // responsive対応：35emと45emの間にはIconを表示
+  .nav-text {
+    display: none;
+  }
+
+  .nav-icon {
+    display: block;
+  }
+}
+
+@media (min-width: 45em) {
   .primary-navigation {
     --gap: 3rem;
     padding-block: 1rem;
     padding-inline: clamp(3rem, 10vw, 10rem);
+  }
+  // responsive対応：大きい画面では文字を表示
+  .nav-text {
+    display: block;
+  }
+
+  .nav-icon {
+    display: none;
   }
 }
 
