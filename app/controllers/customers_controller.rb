@@ -8,6 +8,7 @@ class CustomersController < ApplicationController
   end
 
   def show
+    @orders = current_customer.orders.all
   end
 
   def edit
@@ -15,7 +16,6 @@ class CustomersController < ApplicationController
 
   def update
     if @customer.update(customer_params)
-      flash[:success] = "You have edited user data successfully."
       redirect_to customer_path(@customer)
     else
       render 'edit'

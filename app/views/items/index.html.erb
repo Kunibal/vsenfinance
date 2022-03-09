@@ -1,3 +1,9 @@
+<!--新規登録へのリンク（admin専用）-->
+<% if current_admin %>
+  <%= link_to "商品新規登録", new_item_path %>
+<% end %>
+
+<!--商品一覧-->
 <% @items.each do |item| %>
   <div>
     <%= link_to item_path(item) do %>
@@ -20,3 +26,5 @@
     <%= button_to "カートに入れる", order_items_path(:item_id => item.id) %>
   </div>
 <% end %>
+
+<%= link_to "HOMEへ戻る", root_path %>

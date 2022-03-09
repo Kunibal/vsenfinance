@@ -1,9 +1,2 @@
-<ul>
-  <% @orders.each do |order| %>
-    <li>
-      <%= order.customer_name %>
-      <%= order.customer_address %>
-      <%= order.order_price %>
-    </li>
-  <% end %>
-</ul>
+<!--注文履歴一覧（admin専用）-->
+<%= render 'orders_all' %>

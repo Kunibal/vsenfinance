@@ -1,0 +1,13 @@
+<ul>
+  <% @orders.each do |order| %>
+    <li>
+      <% if current_admin %>
+        <%= order.id %>
+      <% end %>
+      <%= order.customer_name %>
+      <%= order.customer_address %>
+      <%= order.order_price.to_s(:delimited) %>
+      <%= link_to "詳細", order_path(order) %>
+    </li>
+  <% end %>
+</ul>
