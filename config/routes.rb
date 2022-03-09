@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   }
   # PFのホームページ
   get 'homes/homepage'
-  
-  
+
+
   get 'admin/dashboard', to: 'homes#dashboard', as: 'dashboard'
 
   root to: 'homes#top'
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get '/contact', to: 'homes#contact', as: 'contact'
 
   # お知らせ用のroutes
-  resources :posts, only: [:index, :edit, :update, :destroy]
+  resources :posts, only: [:create, :index, :edit, :update, :destroy]
 
   # カート用のroutes
   get 'carts/:id', to: "carts#show", as: "cart"

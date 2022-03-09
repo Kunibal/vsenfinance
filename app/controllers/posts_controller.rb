@@ -1,6 +1,12 @@
 class PostsController < ApplicationController
-  before_action :authenticate_admin!, only: [:edit, :update, :destroy]
+  before_action :authenticate_admin!, only: [:create, :edit, :update, :destroy]
   before_action :set_post, only: [:edit, :update, :destroy]
+
+  def create
+    @post = Post.new(post_params)
+    @post.save
+    redirect_to root_path
+  end
 
   def index
     @posts = Post.all

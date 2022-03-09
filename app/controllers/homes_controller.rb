@@ -16,5 +16,6 @@ class HomesController < ApplicationController
   end
 
   def dashboard
+    @post = Post.new
   end
 end
