@@ -4,6 +4,7 @@
       <% if current_admin %>
         <%= order.id %>
       <% end %>
+      <%= order.created_at.strftime("%Y/%m/%d") %>
       <%= order.customer_name %>
       <%= order.customer_address %>
       <%= order.order_price.to_s(:delimited) %>
