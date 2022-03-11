@@ -1,6 +1,9 @@
 <!--sidebar１-->
 <%= link_to "注文履歴一覧", orders_path %>
 
+<!--graph1-->
+<%= column_chart [{name: "Revenue", data: @chart_data}] %>
+
 
 <!--お知らせ一覧（四つまで表示）-->
 <%= render 'posts/post_all' %>

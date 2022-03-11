@@ -17,6 +17,7 @@ Rails.start()
 // Turbolinks.start()
 ActiveStorage.start()
 
+import "chartkick/chart.js"
 import "jquery.jpostal"
 import "automate_address"
 import "nav"
