@@ -1,9 +1,13 @@
 <!--sidebar１-->
-<%= link_to "注文履歴一覧", orders_path %>
+<p>
+  <%= link_to "注文履歴一覧", orders_path %>
+</p>
 
 <!--graph1-->
-<%= column_chart [{name: "Revenue", data: @chart_data}] %>
-
+<div class="graph-box1">
+  <h4>ECサイトの情報</h4>
+  <%= column_chart [{name: "今週の売上", data: @chart_data, }], thousands: "," %>
+</div>
 
 <!--お知らせ一覧（四つまで表示）-->
 <%= render 'posts/post_all' %>

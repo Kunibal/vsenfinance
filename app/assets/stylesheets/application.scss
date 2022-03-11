@@ -277,3 +277,26 @@ footer {
   height: 75vh;
   width: 95%;
 }
+
+// グラフ用
+  .graph-box1 {
+    min-height: 30vh;
+    width: 55vw;
+  }
+
+@media (min-width: 35em) and (max-width: 46em) {
+  .graph-box1 {
+    margin: auto;
+    min-height: 40vh;
+    width: 70vw;
+  }
+}
+
+@media (max-width: 35em) {
+  .graph-box1 {
+    position: relative;
+    margin: auto;
+    height: 30vh;
+    width: 80vw;
+  }
+}
