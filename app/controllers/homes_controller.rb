@@ -26,13 +26,4 @@ class HomesController < ApplicationController
     zero_filled_date_range = (start_date.to_date..end_date.to_date).map{ |date| [date, 0] }.to_h
     @chart_data = zero_filled_date_range.merge(Order.where(created_at: start_date..end_date).group_by_day(:created_at).sum(:order_price))
   end
-
-  # def filter
-  #   # グラフをボタンで変えるように
-  #   if params[:commit] == "Count"
-  #     @chartdata = Order.group_by_day(:created_at).count
-  #   else params[:commit] == "Price"
-  #     @chartdata = Order.group_by_day(:created_at).sum(:order_price)
-  #   end
-  # end
 end

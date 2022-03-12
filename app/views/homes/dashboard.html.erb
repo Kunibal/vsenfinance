@@ -1,6 +1,7 @@
 <!--sidebar１-->
 <p>
   <%= link_to "注文履歴一覧", orders_path %>
+  <%= link_to "ECサイト詳細", ec_info_path %>
 </p>
 
 <!--graph1-->
@@ -9,6 +10,10 @@
   <%= column_chart [{name: "今週の売上", data: @chart_data, }], thousands: "," %>
 </div>
 
+<!--sidebar2-->
+<p>
+<%= link_to "店内情報", revenues_path %>
+</p>
 <!--お知らせ一覧（四つまで表示）-->
 <%= render 'posts/post_all' %>
 
@@ -19,13 +24,3 @@
   <%= f.text_area :body %>
   <%= f.submit "投稿" %>
 <% end %>
-
-<!--グラフを変更するためのボタン集-->
-<!--<%# form_with url: filter_path, local: false, method: :get do |f| %>-->
-<!--  <%# f.submit "Count" %>-->
-<!--  <%# f.submit "Price" %>-->
-<!--<%# end %>-->
-
-<!--<div id="filter_result">-->
-<!--  <%# render 'homes/filter_date', chartdata: @chartdata %>-->
-<!--</div>-->

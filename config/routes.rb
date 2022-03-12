@@ -39,10 +39,9 @@ Rails.application.routes.draw do
   get 'confirm_order', to: 'orders#confirm_order', as: 'confirm_order'
   get 'complete_order', to: 'orders#complete_order', as: 'complete_order'
 
-  # グラフをデータによって変更（JSを使用）
-  get 'filter', to: 'homes#filter', as: 'filter'
-
   # 店内用の情報
   resources :revenues, only: [:index, :create, :edit, :update, :destroy]
   get 'ec_info', to: 'revenues#ec_info'
+  # グラフをデータによって変更（JSを使用）
+  get 'filter', to: 'revenues#filter', as: 'filter'
 end
