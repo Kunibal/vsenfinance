@@ -41,4 +41,8 @@ Rails.application.routes.draw do
 
   # グラフをデータによって変更（JSを使用）
   get 'filter', to: 'homes#filter', as: 'filter'
+
+  # 店内用の情報
+  resources :revenues, only: [:index, :create, :edit, :update, :destroy]
+  get 'ec_info', to: 'revenues#ec_info'
 end
