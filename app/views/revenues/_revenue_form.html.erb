@@ -1,3 +1,6 @@
+<div id="rev-<%= revenue.id %>">
 <%= revenue.amount %>
 <%= revenue.head_count %>
 <%= revenue.memo %>
+<%= link_to "削除", revenue_path(revenue), method: :delete, remote: true %>
+</div>

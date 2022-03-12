@@ -24,6 +24,8 @@ class RevenuesController < ApplicationController
   end
 
   def destroy
+    @revenue = Revenue.find(params[:id])
+    @revenue.destroy
   end
 
   private
