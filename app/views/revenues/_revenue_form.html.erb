@@ -1,12 +1,3 @@
-<%= form_with model: revenue do |f| %>
-  <%= f.label :売上 %>
-  <%= f.text_field :amount %>
-
-  <%= f.label :来客数 %>
-  <%= f.text_field :head_count %>
-
-  <%= f.label :メモ %>
-  <%= f.text_field :memo %>
-
-  <%= f.submit "追加" %>
-<% end %>
+<%= revenue.amount %>
+<%= revenue.head_count %>
+<%= revenue.memo %>

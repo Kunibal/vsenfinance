@@ -1,7 +1,18 @@
-<% @revenues.each do |revenue| %>
-  <%= revenue.amount %>
-  <%= revenue.head_count %>
-  <%= revenue.memo %>
+<%= form_with model: @revenue, local: false do |f| %>
+  <%= f.label :売上 %>
+  <%= f.text_field :amount %>
+
+  <%= f.label :来客数 %>
+  <%= f.text_field :head_count %>
+
+  <%= f.label :メモ %>
+  <%= f.text_field :memo %>
+
+  <%= f.submit "追加" %>
 <% end %>
 
-<%= render 'revenue_form', revenue: @revenue %>
+<div id="new-rev">
+<% @revenues.each do |revenue| %>
+  <%= render 'revenues/revenue_form', revenue: revenue %>
+<% end %>
+</div>

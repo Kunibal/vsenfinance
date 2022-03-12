@@ -20,17 +20,7 @@ class RevenuesController < ApplicationController
 
   def create
     @revenue = Revenue.new(revenue_params)
-    if @revenue.save
-      redirect_to revenues_path
-    else
-      redirect_to dashboard_path
-    end
-  end
-
-  def edit
-  end
-
-  def update
+    @revenue.save
   end
 
   def destroy
