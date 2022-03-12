@@ -1,8 +1,9 @@
 <!--グラフを変更するためのボタン集-->
 <%= form_with url: filter_path, local: false, method: :get do |f| %>
-  <%= f.submit "Count" %>
-  <%= f.submit "Price" %>
+  <%= f.submit "月間売上" %>
+  <%= f.submit "年間売上" %>
 <% end %>
+<br>
 
 <div id="filter_result">
   <%= render 'revenues/filter_date', chartdata: @chartdata %>

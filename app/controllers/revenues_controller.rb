@@ -10,11 +10,17 @@ class RevenuesController < ApplicationController
   end
 
   def filter
+    # 月間売上
+    end_date_m = Date.today.beginning_of_month.next_month
+    start_date_m = Date.today.beginning_of_month
+    zero_filled_m_date_range = (start_date_m.to_date..end_date_m.to_date).map{ |date| [date, 0] }.to_h
+
     # グラフをボタンで変えるように
-    if params[:commit] == "Count"
-      @chartdata = Order.group_by_day(:created_at).count
+    if params[:commit] == "月間売上"
+      @chartdata = zero_filled_m_date_range.merge(Order.where(created_at: start_date_m..end_date_m).group_by_day(:created_at).sum(:order_price))
     else
-      @chartdata = Order.group_by_day(:created_at).sum(:order_price)
+      # 年間売上
+      @chartdata = Order.where(created_at: Date.today.beginning_of_year..Date.today.next_year).group_by_month(:created_at).sum(:order_price)
     end
   end
 
