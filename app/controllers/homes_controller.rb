@@ -24,6 +24,12 @@ class HomesController < ApplicationController
     end_date = Date.today.beginning_of_week + 6.days
     start_date = Date.today.beginning_of_week
     zero_filled_date_range = (start_date.to_date..end_date.to_date).map{ |date| [date, 0] }.to_h
-    @chart_data = zero_filled_date_range.merge(Order.where(created_at: start_date..end_date).group_by_day(:created_at).sum(:order_price))
+    @ec_chart = zero_filled_date_range.merge(Order.where(created_at: start_date..end_date).group_by_day(:created_at).sum(:order_price))
+
+    # 店内の情報をグラフ化（今週分）
+    end_date = Date.today.beginning_of_week + 6.days
+    start_date = Date.today.beginning_of_week
+    zero_filled_date_range = (start_date.to_date..end_date.to_date).map{ |date| [date, 0] }.to_h
+    @store_chart = zero_filled_date_range.merge(Revenue.where(created_at: start_date..end_date).group_by_day(:created_at).sum(:amount))
   end
 end

@@ -43,5 +43,6 @@ Rails.application.routes.draw do
   resources :revenues, only: [:index, :create, :destroy]
   get 'ec_info', to: 'revenues#ec_info'
   # グラフをデータによって変更（JSを使用）
-  get 'filter', to: 'revenues#filter', as: 'filter'
+  get 'ec_filter', to: 'revenues#ec_filter', as: 'ec_filter'
+  get 'store_filter', to: 'revenues#store_filter', as: 'store_filter'
 end

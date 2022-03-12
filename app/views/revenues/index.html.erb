@@ -1,3 +1,15 @@
+<!--グラフを変更するためのボタン集-->
+<%= form_with url: store_filter_path, local: false, method: :get do |f| %>
+  <%= f.submit "月間売上" %>
+  <%= f.submit "年間売上" %>
+<% end %>
+<br>
+
+<div id="store_filter_result">
+  <%= render 'revenues/store_filter_date', chartdata: @chartdata %>
+</div>
+
+<!--店内用の売上入力フォーム-->
 <%= form_with model: @revenue, local: false do |f| %>
   <%= f.label :売上 %>
   <%= f.text_field :amount %>
@@ -11,6 +23,7 @@
   <%= f.submit "追加" %>
 <% end %>
 
+<!--店内売上表-->
 <div id="new-rev">
 <% @revenues.each do |revenue| %>
   <%= render 'revenues/revenue_form', revenue: revenue %>
