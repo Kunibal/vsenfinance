@@ -27,16 +27,35 @@ body {
 }
 
 // utility class
+.fontsize-300 {
+  font-size: 1.1em;
+}
+
+.fontsize-400 {
+  font-size: 1.3em;
+}
+
+.fontweight-700 {
+  font-weight: 700;
+}
+
 .flex {
   display: flex;
   // Use gap custom property to change at different sizes
   gap: var(--gap, 1rem);
 }
 
+.box-shadow {
+  -moz-box-shadow: 8px 14px 20px 0px rgba(0, 0, 0, 0.35);
+  -webkit-box-shadow: 8px 14px 20px 0px rgba(0, 0, 0, 0.35);
+  -ms-box-shadow: 8px 14px 20px 0px rgba(0, 0, 0, 0.35);
+  box-shadow: 8px 14px 20px 0px rgba(0, 0, 0, 0.35);
+}
+
 // NavBarデザイン
 
 header {
-  background: #1E1E24;
+  background: #232526;
 }
 
 .logo {
@@ -182,7 +201,7 @@ header {
 // footerデザイン
 
 footer {
-  background: #1E1E24;
+  background: #232526;
   color: #fff;
 
   // stick footer to bottom
@@ -266,16 +285,11 @@ footer {
   background-image: url("cupcake3.jpg");
 }
 
-.image4 {
-  background-image: url("cupcake4.jpg");
-  object-fit: contain;
-}
-
 #container {
   margin-top: 1em;
   margin-inline: auto;
-  height: 75vh;
-  width: 95%;
+  height: 65vh;
+  width: 90%;
 }
 
 // グラフ用
@@ -299,4 +313,73 @@ footer {
     height: 30vh;
     width: 80vw;
   }
+}
+
+// topページ
+.new-arrivals {
+  margin: auto;
+  width: 80%;
+  justify-content: space-around;
+}
+
+.news-box {
+  margin-top: 4em;
+  margin-inline: auto;
+}
+
+// topページの商品一覧ボタン
+.item-link {
+  margin-inline: auto;
+  width: 80%;
+}
+
+
+
+// button family
+// normal button
+.btn-grad {background-image: linear-gradient(to right, #232526 0%, #414345  51%, #232526  100%)}
+.btn-grad {
+  padding: 0.5em 1.25em;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 6px;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+// destroy button
+.btn-del {
+  padding: 0.5em 1.25em;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  border: 1px solid #232526;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 6px;
+}
+
+.btn-del:hover {
+  background-color: #e52d27;
+  color: #fff;
+  text-decoration: none;
+}
+
+// remove submit button style
+button, input[type="submit"], input[type="reset"] {
+	border: none;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.small-btn {
+  padding: 0.25em 1em;
 }

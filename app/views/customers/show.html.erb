@@ -11,7 +11,9 @@
 <%= @customer.building_name %>
 
 <%= link_to "編集", edit_customer_path(@customer) %>
+<% if @orders.exists? %>
 <hr>
 
 <!--current_customerの注文履歴-->
 <%= render 'orders/orders_all' %>
+<% end %>
