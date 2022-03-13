@@ -1,26 +1,39 @@
-<!--sidebar１-->
-<p>
-  <%= link_to "注文履歴一覧", orders_path %>
-  <%= link_to "ECサイト詳細", ec_info_path %>
-</p>
+<div class="container">
+    <div class="flex justify-content-evenly">
+      <!--sidebar１-->
+      <div class="sidebar align-self-center flex flex-column justify-content-evenly">
+        <ul class="flex flex-column p-2">
+          <li class="align-self-center"><%= link_to "注文履歴一覧", orders_path, class: 'text-white text-decoration-none' %></li>
+          <li class="align-self-center"><%= link_to "ECサイト詳細", ec_info_path, class: 'text-white text-decoration-none' %></li>
+          <li class="align-self-center"><%= link_to "商品新規登録", new_item_path, class: 'text-white text-decoration-none' %></li>
+        </ul>
+      </div>
 
-<!--graph1 (ECサイト）-->
-<div class="graph-box1">
-  <h4>ECサイトの情報</h4>
-  <%= column_chart [{name: "今週の売上", data: @ec_chart, }], thousands: "," %>
+      <!--graph1 (ECサイト）-->
+      <div class="graph-box1 flex flex-column align-items-center my-4">
+        <h4 class="my-2">ECサイトの情報</h4>
+        <%= column_chart [{name: "今週の売上", data: @ec_chart, }], thousands: "," %>
+      </div>
+    </div>
 </div>
 
-<!--sidebar2-->
-<p>
-<%= link_to "店内情報", revenues_path %>
-</p>
 
-<!--graph2（店内用）-->
-<div class="graph-box1">
-  <h4>店内の情報</h4>
-  <%= column_chart [{name: "今週の売上", data: @store_chart, }], thousands: "," %>
+<div class="container">
+    <div class="flex justify-content-evenly">
+      <!--graph1 (ECサイト）-->
+      <div class="graph-box1 flex flex-column align-items-center my-4">
+        <h4 class="my-2">店内の情報</h4>
+          <%= column_chart [{name: "今週の売上", data: @store_chart, }], thousands: "," %>
+      </div>
+
+      <!--sidebar2-->
+      <div class="sidebar align-self-center flex flex-column justify-content-center">
+        <ul class="flex flex-column justify-content-center p-2">
+          <li class="align-self-center"><%= link_to "店内情報", revenues_path, class: 'text-white text-decoration-none' %></li>
+        </ul>
+      </div>
+    </div>
 </div>
-
 
 <!--お知らせ一覧（四つまで表示）-->
 <div class="news-box flex flex-column">

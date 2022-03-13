@@ -315,6 +315,20 @@ footer {
   }
 }
 
+// admin dashboard
+.sidebar {
+  background: #232526;
+  width: 8em;
+  height: 12em;
+  border: 2px solid #232526;
+  border-radius: 4px;
+}
+.sidebar ul {
+  background: hsla(0, 0%, 100%, 0.1);
+  list-style: none;
+  padding: 0;
+}
+
 // topページ
 .new-arrivals {
   margin: auto;

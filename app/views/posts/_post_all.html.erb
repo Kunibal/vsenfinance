@@ -10,10 +10,6 @@
           <span class="fontweight-700"><%= post.created_at.strftime("%Y/%m/%d") %></span>
           <%= post.title %>
           <%= post.body %>
-          <% if current_admin %>
-            <%= link_to "編集", edit_post_path(post.id), class: 'btn-grad small-btn' %>
-            <%= link_to "削除", post_path(post.id), method: :delete, class: 'btn-del small-btn', data: { confirm: "本当に削除しますか。" } %>
-          <% end %>
         </li>
       <% end %>
     </ul>
