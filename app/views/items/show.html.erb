@@ -1,22 +1,28 @@
-<div>
-  <%= image_tag @item.item_image.variant(resize_to_fill: [200, 200]) %>
+<div class="container my-4">
+  <div class="card p-3 mb-3 box-shadow" style="max-width: 80%;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <%= image_tag @item.item_image.variant(resize_to_fill: [300, 250]), class: 'border' %>
+      </div>
+      <div class="col-md-6">
+        <div class="card-body">
+          <h5 class="card-title">
+            <span class="fontweight-700"><%= @item.name %></span>
+          </h5>
+          <p class="card-text">
+            <span class="fontweight-700">税込価格　</span>
+            <%= @item.add_tax %>円
+          </p>
+          <p>
+            <span class="fontweight-700">商品説明　</span>
+            <div><%= @item.description %></div>
+          </p>
+          <%= button_to "カートに入れる", order_items_path(:item_id => @item.id), class: 'btn-grad' %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% if current_admin %>
+    <%= link_to "編集", edit_item_path(@item), class: 'btn-grad small-btn' %>
+  <% end %>
 </div>
-<div>
-  商品名
-  <%= @item.name %>
-</div>
-<div>
-  商品説明
-  <%= @item.description %>
-</div>
-<div>
-  税込価格
-  <%= @item.add_tax %>
-</div>
-<div>
-  <%= button_to "カートに入れる", order_items_path(:item_id => @item.id) %>
-</div>
-
-<% if current_admin %>
-  <%= link_to "編集", edit_item_path(@item) %>
-<% end %>

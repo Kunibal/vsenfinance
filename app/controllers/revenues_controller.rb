@@ -4,6 +4,11 @@ class RevenuesController < ApplicationController
   def index
     @revenues = Revenue.order(created_at: :desc)
     @revenue = Revenue.new
+
+    end_date_m = Date.today.beginning_of_month.next_month
+    start_date_m = Date.today.beginning_of_month
+    zero_filled_m_date_range = (start_date_m.to_date..end_date_m.to_date).map{ |date| [date, 0] }.to_h
+    @chartdata = zero_filled_m_date_range.merge(Revenue.where(created_at: start_date_m..end_date_m).group_by_day(:created_at).sum(:amount))
   end
 
   def store_filter
@@ -22,6 +27,10 @@ class RevenuesController < ApplicationController
   end
 
   def ec_info
+    end_date_m = Date.today.beginning_of_month.next_month
+    start_date_m = Date.today.beginning_of_month
+    zero_filled_m_date_range = (start_date_m.to_date..end_date_m.to_date).map{ |date| [date, 0] }.to_h
+    @chartdata = zero_filled_m_date_range.merge(Order.where(created_at: start_date_m..end_date_m).group_by_day(:created_at).sum(:order_price))
   end
 
   def ec_filter
