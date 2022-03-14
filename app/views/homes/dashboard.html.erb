@@ -64,7 +64,8 @@
         <%= link_to "お知らせ履歴", posts_path, class: 'btn-grad' %>
       <% end %>
     </div>
-    <div class="row">
+  <!--新しいお知らせを投稿するフォーム-->
+  <div class="row">
     <div class="col-12 mb-4">
       <h3>お知らせ作成</h3>
       <%= form_with model: @post, class: 'flex flex-wrap', local: true do |f| %>

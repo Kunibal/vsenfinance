@@ -17,7 +17,8 @@
     <!--お知らせ履歴一覧-->
     <div class="my-3 align-self-end">
       <% if @posts.exists? %>
-        <%= link_to "お知らせ履歴", posts_path, class: 'btn-grad' %>
+        <%= link_to "お知らせ履歴", posts_path, class: 'btn-grad' if !current_page?(posts_path) %>
+        <%= link_to "戻る", :back, class: 'btn-grad' if current_page?(posts_path) %>
       <% end %>
     </div>
 </div>

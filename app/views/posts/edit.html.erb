@@ -1,2 +1,24 @@
-<%= render 'post_form' %>
-<%= link_to "戻る", root_path %>
+<div class="container my-5">
+  <div class="row">
+    <div class="col-8 mb-4">
+      <h3 class="mb-3">お知らせ編集</h3>
+      <div class="my-3">
+        <span class="fontweight-700 border-bottom">作成日　</span><span class="border-bottom"><%= @post.created_at.strftime("%Y/%m/%d") %></span>
+      </div>
+      <%= form_with model: @post, class: 'flex flex-wrap', local: true do |f| %>
+        <div>
+          <%= f.text_field :title, class: 'form-control' %>
+        </div>
+        <!--<div>-->
+          <%= f.text_field :body, class: 'form-control' %>
+        <!--</div>-->
+        <div>
+          <%= f.submit "編集", class: 'btn-grad small-btn mb-4' %>
+        </div>
+      <% end %>
+      <div>
+        <%= link_to "戻る", :back, class: 'btn-grad small-btn' %>
+      </div>
+    </div>
+  </div>
+</div>
