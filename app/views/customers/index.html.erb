@@ -1,5 +1,26 @@
-<% @customers.each do |customer| %>
-  <%= customer.id %>
-  <%= customer.last_name + customer.first_name %>
-  <%= customer.email %>
-<% end %>
+<div class="flex flex-column m-auto my-4" style="width: 50%;">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">お客様名</th>
+        <th scope="col">メールアドレス</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @customers.each do |customer| %>
+        <tr>
+          <td><%= customer.id %></td>
+          <td><%= customer.last_name + customer.first_name %></td>
+          <td><%= customer.email %></td>
+          <td><%= link_to "詳細", customer_path(customer), class: 'btn-grad small-btn' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div>
+    <%= link_to "戻る", :back, class: 'btn-grad' %>
+  </div>
+</div>

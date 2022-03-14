@@ -1,19 +1,36 @@
-<%= @customer.last_name %>
-<%= @customer.first_name %>
-<% if !current_customer %>
-<%= @customer.last_name_kana %>
-<%= @customer.first_name_kana %>
-<% end %>
-<%= @customer.postal_code %>
-<%= @customer.prefecture_name %>
-<%= @customer.city %>
-<%= @customer.block %>
-<%= @customer.building_name %>
+<div class="flex">
+  <div class="flex flex-column ms-auto my-4">
+    <div class="fontweight-700">お名前</div>
+    <div class="fontweight-700">郵便番号</div>
+    <div class="fontweight-700">ご住所</div>
+  </div>
+  <div class="flex flex-column me-auto my-4">
+    <div class="border-bottom">
+      <%= @customer.last_name %>
+      <%= @customer.first_name %>
+      <% if !current_customer %>
+      <%= @customer.last_name_kana %>
+      <%= @customer.first_name_kana %>
+      <% end %>
+    </div>
+    <div class="border-bottom">
+      <%= @customer.postal_code %>
+    </div>
+    <div class="border-bottom">
+      <%= @customer.prefecture_name %>
+      <%= @customer.city %>
+    </div>
+    <div class="border-bottom">
+      <%= @customer.block %>
+      <%= @customer.building_name %>
+    </div>
 
-<%= link_to "編集", edit_customer_path(@customer) %>
-<% if @orders.exists? %>
-<hr>
-
-<!--current_customerの注文履歴-->
-<%= render 'orders/orders_all' %>
-<% end %>
+    <div>
+      <%= link_to "編集", edit_customer_path(@customer), class: 'btn-grad' %>
+    </div>
+  </div>
+    <% if @orders.exists? %>
+      <!--current_customerの注文履歴-->
+      <%= render 'orders/orders_all' %>
+    <% end %>
+</div>

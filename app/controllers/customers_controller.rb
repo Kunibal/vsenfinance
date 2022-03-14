@@ -8,7 +8,7 @@ class CustomersController < ApplicationController
   end
 
   def show
-    @orders = current_customer.orders.all
+    @orders = @customer.orders.all
   end
 
   def edit

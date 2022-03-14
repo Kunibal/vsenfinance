@@ -1,16 +1,46 @@
-<ul>
-  <% @orders.each do |order| %>
-    <li>
-      <% if current_admin %>
-        <%= order.id %>
-      <% end %>
-      <%= order.created_at.strftime("%Y/%m/%d") %>
-      <%= order.customer_name %>
-      <%= order.customer_address %>
-      <%= order.order_price.to_s(:delimited) %>
-      <%= link_to "詳細", order_path(order) %>
-    </li>
-  <% end %>
-</ul>
+<!--<%# if current_admin %>-->
+<!--  <div>-->
+<!--    <%# @orders.each do |order| %>-->
+<!--      <%# order.order_items.each do |order_item| %>-->
+<!--        <div>-->
+<!--          <%# order_item.item.name %>-->
+<!--          <%# order_item.quantity %>-->
+<!--        </div>-->
+<!--      <%# end %>-->
+<!--    <%# end %>-->
+<!--  </div>-->
+<!--<%# end %>-->
 
-<%= link_to "戻る", :back %>
+<div class="flex flex-column m-auto my-4">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"><% if current_admin %>#<% end %></th>
+      <th scope="col">注文日</th>
+      <th scope="col">お客様名</th>
+      <th scope="col">注文の合計</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td>
+          <% if current_admin %>
+            <%= order.id %>
+          <% end %>
+        </td>
+        <td><%= order.created_at.strftime("%Y/%m/%d") %></td>
+        <td><%= order.customer_name %></td>
+        <td><%= order.order_price.to_s(:delimited) %>円</td>
+        <td><%= link_to "詳細", order_path(order), class: 'btn-grad small-btn' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% if current_admin %>
+  <div>
+    <%= link_to "戻る", :back, class: 'btn-grad' %>
+  </div>
+<% end %>
+</div>
