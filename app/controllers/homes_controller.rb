@@ -31,5 +31,7 @@ class HomesController < ApplicationController
     start_date = Date.today.beginning_of_week
     zero_filled_date_range = (start_date.to_date..end_date.to_date).map{ |date| [date, 0] }.to_h
     @store_chart = zero_filled_date_range.merge(Revenue.where(created_at: start_date..end_date).group_by_day(:created_at).sum(:amount))
+
+    @weekly_revenue = Revenue.where(created_at: start_date..end_date).group_by_week(:created_at).sum(:amount).values
   end
 end

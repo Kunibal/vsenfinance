@@ -1,13 +1,8 @@
-<!--新規登録へのリンク（admin専用）-->
-<% if current_admin %>
-  <%= link_to "商品新規登録", new_item_path %>
-<% end %>
-
 <!--商品一覧-->
 <div class="container mt-5">
   <div class="col-10 m-auto flex flex-wrap ">
     <% @items.each do |item| %>
-      <div class="flex align-items-center pe-3">
+      <div class="flex align-items-center p-3">
         <%= link_to item_path(item) do %>
         <%= image_tag item.item_image.variant(resize_to_fill: [150, 150]) %>
         <% end %>

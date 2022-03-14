@@ -3,9 +3,9 @@
       <!--sidebar１-->
       <div class="sidebar align-self-center flex flex-column justify-content-evenly">
         <ul class="flex flex-column p-2">
-          <li class="align-self-center"><%= link_to "注文履歴一覧", orders_path, class: 'text-white text-decoration-none' %></li>
-          <li class="align-self-center"><%= link_to "ECサイト詳細", ec_info_path, class: 'text-white text-decoration-none' %></li>
-          <li class="align-self-center"><%= link_to "商品新規登録", new_item_path, class: 'text-white text-decoration-none' %></li>
+          <li class="align-self-center"><%= link_to "注文履歴一覧", orders_path, class: 'text-white' %></li>
+          <li class="align-self-center"><%= link_to "ECサイト詳細", ec_info_path, class: 'text-white' %></li>
+          <li class="align-self-center"><%= link_to "商品新規登録", new_item_path, class: 'text-white' %></li>
         </ul>
       </div>
 
@@ -28,9 +28,12 @@
 
       <!--sidebar2-->
       <div class="sidebar align-self-center flex flex-column justify-content-center">
-        <ul class="flex flex-column justify-content-center p-2">
-          <li class="align-self-center"><%= link_to "店内情報", revenues_path, class: 'text-white text-decoration-none' %></li>
+        <ul class="flex flex-column p-2">
+          <li class="align-self-center"><%= link_to "店内情報", revenues_path, class: 'text-white' %></li>
         </ul>
+        <p class="text-white text-center" style="background: hsla(0, 0%, 100%, 0.1);">
+          今週の売上<span class="fontweight-700"><%= @weekly_revenue.to_sentence.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse %>円</span>
+        </p>
       </div>
     </div>
 </div>
@@ -72,7 +75,7 @@
           <%= f.text_field :body, placeholder: 'お知らせの内容', class: 'form-control' %>
         <!--</div>-->
         <div>
-          <%= f.submit "投稿", class: 'btn-grad small-btn' %>
+          <%= f.submit "投稿", class: 'btn-grad small-btn mb-4' %>
         </div>
       <% end %>
     </div>
