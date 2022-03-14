@@ -1,20 +1,72 @@
-<h2>Cart show</h2>
-<ul>
-  <% @cart.order_items.each do |order_item| %>
-    <li>商品: <%= order_item.item.name %>/ 税込価格: <%= order_item.item.add_tax %>/ 個数: <%= order_item.quantity %>/ 小計：<%= order_item.subtotal.to_s(:delimited) %>
-    <ul>
-      <li>
-        <%= link_to "Add one", order_item_add_path(:id => order_item), method: :post %>
-        <%= link_to "Reduce one", order_item_reduce_path(:id => order_item), method: :post %>
-      </li>
-      <li>
-        <%= link_to "Remove item", order_item_path(order_item), method: :delete %>
-      </li>
-    </ul>
-  <% end %>
-</ul>
-<h3>合計: <%= @cart.total_price.to_s(:delimited) %></h3>
-<% if @cart.order_items.exists? %>
-  <%= link_to "Proceed to checkout", new_order_path %>
-  <%= link_to "Empty cart", cart_path(@current_cart), method: :delete, data: {confirm: "Are you sure?"} %>
-<% end %>
+<div class="container my-5">
+  <div class="row d-flex justify-content-center">
+    <% if @cart.order_items.exists? %>
+      <div class="col-8 d-flex justify-content-between">
+        <div>
+          <h2 class="mb-4">ショッピングカート</h2>
+        </div>
+          <div>
+            <%= link_to "カートを空にする", cart_path(@current_cart), method: :delete, class: 'btn-del', data: {confirm: "本当に全て削除しますか。"} %>
+          </div>
+      </div>
+      <div class="col-8">
+        <table class="table">
+          <!--テーブル一番目のRow-->
+          <thead>
+            <tr>
+              <th scope="col">商品</th>
+              <th scope="col">単価(税込)</th>
+              <th scope="col">数量</th>
+              <th scope="col">小計</th>
+              <th></th>
+            </tr>
+          </thead>
+          <!--テーブルのボディー-->
+          <tbody>
+            <% @cart.order_items.each do |order_item| %>
+              <tr scope="row">
+                <td><%= order_item.item.name %></td>
+                <td><%= order_item.item.add_tax %>円</td>
+                <td>
+                  <div>
+                    <span class="fontsize-300"><%= order_item.quantity %>個　</span>
+                    <span class="mx-1">
+                      <%= link_to order_item_add_path(:id => order_item), method: :post, class: 'btn-grad small-btn' do %>
+                        <i class="fa-solid fa-circle-up"></i>
+                      <% end %>
+                    </span>
+                    <span class="mx-1">
+                      <%= link_to order_item_reduce_path(:id => order_item), method: :post, class: 'btn-grad small-btn' do %>
+                        <i class="fa-solid fa-circle-down"></i>
+                      <% end %>
+                    </span>
+                  </div>
+                </td>
+                <td><%= order_item.subtotal.to_s(:delimited) %>円</td>
+                <td><%= link_to "削除", order_item_path(order_item), method: :delete, class: 'btn-del small-btn' %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div class="col-8 d-flex justify-content-between">
+        <div class="offset-1"><%= link_to "買い物を続ける", items_path, class: 'btn-grad small-btn' %></div>
+        <div class="border-bottom border-dark fontweight-700 fontsize-300">合計　<%= @cart.total_price.to_s(:delimited) %>円</div>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div class="col-8 d-flex justify-content-center mt-3">
+        <div>
+          <%= link_to "Proceed to checkout", new_order_path, class: 'btn-grad' %>
+        </div>
+      </div>
+    <% else %>
+      <h1>ショッピングカートは空です。</h1>
+      <div class="fontsize-300 fontweight-700 mt-4">
+        商品一覧は　<%= link_to "こちら", items_path, class: 'btn-grad small-btn' %>　です。
+      </div>
+    <% end %>
+  </div>
+</div>
