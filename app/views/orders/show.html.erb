@@ -1,12 +1,52 @@
-<%= @order.created_at.strftime('%Y/%m/%d') %>
-<%= @order.customer_name %>
-<%= @order.customer_address %>
-<%= @order.order_price.to_s(:delimited) %>
-<% @order.order_items.each do |item| %>
-  <%= item.item.name %>
-  <%= item.quantity %>
-  <%= item.item.add_tax %>
-  <%= item.subtotal.to_s(:delimited) %>
-<% end %>
+<div class="flex">
+  <div class="flex flex-column ms-auto my-4">
+    <div class="fontweight-700 mt-4">注文日</div>
+    <div class="fontweight-700">お名前</div>
+    <div class="fontweight-700">お届け先</div>
+    <div class="fontweight-700">注文の合計</div>
+  </div>
+  <div class="flex flex-column me-auto my-4">
+    <div class="border-bottom mt-4">
+      <%= @order.created_at.strftime('%Y/%m/%d') %>
+    </div>
 
-<%= link_to "戻る", :back %>
+    <div class="border-bottom">
+      <%= @order.customer_name %>
+    </div>
+
+    <div class="border-bottom">
+      <%= @order.customer_address %>
+    </div>
+    <div class="border-bottom">
+      <%= @order.order_price.to_s(:delimited) %>円
+    </div>
+
+    <div>
+      <%= link_to "戻る", :back, class: 'btn-grad small-btn' %>
+    </div>
+  </div>
+
+  <div class="flex flex-column m-auto my-4">
+    <h3>注文詳細</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">商品名</th>
+          <th scope="col">個数</th>
+          <th scope="col">単価</th>
+          <th scope="col">小計</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order.order_items.each do |item| %>
+          <tr>
+            <td><%= item.item.name %></td>
+            <td class="text-center"><%= item.quantity %>個</td>
+            <td><%= item.item.add_tax %>円</td>
+            <td><%= item.subtotal.to_s(:delimited) %>円</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

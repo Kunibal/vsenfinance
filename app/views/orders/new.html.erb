@@ -1,14 +1,28 @@
-<%= form_with model: @order, url: confirm_order_path, method: :get do |f| %>
-
-<!--select payment_method here-->
-
-<%= f.radio_button :address, 1, checked: true %>
-<%= f.label :address_1, 'ご住所の選択' %>
-<%= current_customer.last_name + current_customer.first_name %>
-<%= current_customer.postal_code.to_s + current_customer.prefecture_name + current_customer.city + current_customer.block %>
-<% if !current_customer.building_name.empty? %>
-  <%= current_customer.building_name %>
-<% end %>
-
-<%= f.submit %>
-<% end %>
+<div class="container my-5">
+  <div class="row">
+    <div class="col-8 mb-4">
+      <div class="card border-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">お届け先を選択してください。</div>
+        <%= form_with model: @order, url: confirm_order_path, method: :get do |f| %>
+        <div class="card-body text-dark">
+          <h5 class="card-title">
+            <%= f.radio_button :address, 1, checked: true %>
+            <%= f.label :address_1, 'お届け先' %>
+          </h5>
+          <p class="card-text">
+            <p class="m-0"><%= current_customer.last_name + current_customer.first_name %></p>
+            <p class="m-0"><%= current_customer.postal_code.to_s %></p>
+            <p class="m-0">
+              <%= current_customer.prefecture_name + current_customer.city + current_customer.block %>
+              <% if !current_customer.building_name.empty? %>
+                <p class="m-0"><%= current_customer.building_name %></p>
+              <% end %>
+            </p>
+          </p>
+        </div>
+      </div>
+      <%= f.submit '確認画面へ進む', class: 'btn-grad small-btn my-3' %>
+      <% end %>
+    </div>
+  </div>
+</div>

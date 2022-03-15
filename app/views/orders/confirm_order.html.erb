@@ -1,17 +1,55 @@
-<% @current_cart.order_items.each do |item| %>
-  <%= item.item.name %>
-  <%= item.item.add_tax %>
-  <%= item.quantity %>
-  <%= item.subtotal.to_s(:delimited) %>
-<% end %>
+<div class="container my-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-8">
+      <table class="table">
+      <!--テーブル一番目のRow-->
+      <thead>
+        <tr>
+          <th scope="col">商品</th>
+          <th scope="col">単価(税込)</th>
+          <th scope="col">数量</th>
+          <th scope="col">小計</th>
+          <th></th>
+        </tr>
+      </thead>
+      <!--テーブルのボディー-->
+      <tbody>
+        <% @current_cart.order_items.each do |item| %>
+          <tr scope="row">
+            <td><%= item.item.name %></td>
+            <td> <%= item.item.add_tax %>円</td>
+            <td>
+              <div>
+                <span class="fontsize-300"><%= item.quantity %>個</span>
+              </div>
+            </td>
+            <td><%= item.subtotal.to_s(:delimited) %>円</td>
+            <td></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-<div>
-  合計：<%= @current_cart.total_price.to_s(:delimited) %>
+  <div class="row d-flex justify-content-center">
+    <div class="col-8 d-flex justify-content-between">
+      <div class="offset-1"></div>
+      <div class="border-bottom border-dark fontweight-700 fontsize-300">合計　<%= @current_cart.total_price.to_s(:delimited) %>円</div>
+    </div>
+  </div>
+
+  <div class="row d-flex justify-content-center">
+    <div class="col-8 d-flex justify-content-center mt-3">
+      <div>
+        <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
+          <%= f.hidden_field :customer_name %>
+          <%= f.hidden_field :customer_address %>
+          <%= f.hidden_field :order_price %>
+          <%= f.submit "注文する", class: 'btn-grad small-btn' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
 </div>
-
-<%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
-  <%= f.hidden_field :customer_name %>
-  <%= f.hidden_field :customer_address %>
-  <%= f.hidden_field :order_price %>
-  <%= f.submit "注文を確認する" %>
-<% end %>

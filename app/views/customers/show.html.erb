@@ -1,18 +1,23 @@
 <div class="flex">
   <div class="flex flex-column ms-auto my-4">
-    <div class="fontweight-700">お名前</div>
+    <div class="fontweight-700 mt-4">お名前</div>
+    <% if !current_customer %>
+      <div class="fontweight-700">フリガナ</div>
+    <% end %>
     <div class="fontweight-700">郵便番号</div>
     <div class="fontweight-700">ご住所</div>
   </div>
   <div class="flex flex-column me-auto my-4">
-    <div class="border-bottom">
+    <div class="border-bottom mt-4">
       <%= @customer.last_name %>
       <%= @customer.first_name %>
+    </div>
       <% if !current_customer %>
+    <div class="border-bottom">
       <%= @customer.last_name_kana %>
       <%= @customer.first_name_kana %>
-      <% end %>
     </div>
+      <% end %>
     <div class="border-bottom">
       <%= @customer.postal_code %>
     </div>
