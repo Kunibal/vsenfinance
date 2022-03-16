@@ -1,31 +1,69 @@
-<!--グラフを変更するためのボタン集-->
-<%= form_with url: store_filter_path, local: false, method: :get do |f| %>
-  <%= f.submit "月間売上" %>
-  <%= f.submit "年間売上" %>
-<% end %>
-<br>
+<div class="container">
+  <div class="flex flex-column align-items-center my-5">
+    <div class="mb-3">
+      <!--グラフを変更するためのボタン集-->
+      <%= form_with url: store_filter_path, local: false, method: :get do |f| %>
+        <span class="mx-2"><%= f.submit "月間売上", class: 'btn-grad small-btn' %></span>
+        <span class="mx-2"><%= f.submit "年間売上", class: 'btn-grad small-btn' %></span>
+      <% end %>
+    </div>
 
-<div id="store_filter_result">
-  <%= render 'revenues/store_filter_date', chartdata: @chartdata %>
-</div>
+    <div id="store_filter_result">
+      <%= render 'revenues/store_filter_date', chartdata: @chartdata %>
+    </div>
 
-<!--店内用の売上入力フォーム-->
-<%= form_with model: @revenue, local: false do |f| %>
-  <%= f.label :売上 %>
-  <%= f.text_field :amount %>
+    <div class="align-self-start">
+    <span class="fontweight-700">今月の売上　</span><span><%= @monthly_revenue.to_sentence.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse %>円</span>
+    <hr>
+    </div>
 
-  <%= f.label :来客数 %>
-  <%= f.text_field :head_count %>
 
-  <%= f.label :メモ %>
-  <%= f.text_field :memo %>
 
-  <%= f.submit "追加" %>
-<% end %>
+    <div class="align-self-start flex">
+      <!--店内用の売上入力フォーム-->
+      <div class="me-4">
+        <%= form_with model: @revenue, local: false do |f| %>
+          <div class="col-5">
+          <%= f.label :売上, class: 'fontweight-700' %>
+          <%= f.text_field :amount, class: 'form-control' %>
 
-<!--店内売上表-->
-<div id="new-rev">
-<% @revenues.each do |revenue| %>
-  <%= render 'revenues/revenue_form', revenue: revenue %>
-<% end %>
+          <%= f.label :来客数, class: 'fontweight-700' %>
+          <%= f.text_field :head_count, class: 'form-control' %>
+          </div>
+          <%= f.label :メモ, class: 'fontweight-700' %>
+          <%= f.text_field :memo, class: 'form-control' %>
+
+          <%= f.submit "入力", class: 'btn-grad small-btn my-3' %>
+        <% end %>
+      </div>
+      <!--店内売上表-->
+      <div>
+        <div class="flex flex-column m-auto mb-4">
+          <h3>注文履歴</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">入力日</th>
+                <th scope="col">売上</th>
+                <th scope="col">来客数</th>
+                <th scope="col">メモ</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="new-rev">
+              <% @revenues.each do |revenue| %>
+                <%= render 'revenues/revenue_form', revenue: revenue %>
+              <% end %>
+            </tbody>
+          </table>
+          <span>
+            <%= link_to_prev_page @revenues, '前へ', class: 'btn-grad small-btn me-1' %>
+            <%= link_to_next_page @revenues, '次へ', class: 'btn-grad small-btn ms-1' %>
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>

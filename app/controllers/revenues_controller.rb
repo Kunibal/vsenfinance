@@ -2,13 +2,15 @@ class RevenuesController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @revenues = Revenue.order(created_at: :desc)
+    @revenues = Revenue.order(created_at: :desc).page params[:page]
     @revenue = Revenue.new
 
     end_date_m = Date.today.beginning_of_month.next_month
     start_date_m = Date.today.beginning_of_month
     zero_filled_m_date_range = (start_date_m.to_date..end_date_m.to_date).map{ |date| [date, 0] }.to_h
     @chartdata = zero_filled_m_date_range.merge(Revenue.where(created_at: start_date_m..end_date_m).group_by_day(:created_at).sum(:amount))
+
+    @monthly_revenue = Revenue.where(created_at: start_date_m..end_date_m).group_by_month(:created_at).sum(:amount).values
   end
 
   def store_filter
@@ -31,6 +33,9 @@ class RevenuesController < ApplicationController
     start_date_m = Date.today.beginning_of_month
     zero_filled_m_date_range = (start_date_m.to_date..end_date_m.to_date).map{ |date| [date, 0] }.to_h
     @chartdata = zero_filled_m_date_range.merge(Order.where(created_at: start_date_m..end_date_m).group_by_day(:created_at).sum(:order_price))
+
+    @monthly_order_revenue = Order.where(created_at: start_date_m..end_date_m).group_by_month(:created_at).sum(:order_price).values
+    @monthly_order_count = Order.where(created_at: start_date_m..end_date_m).group_by_month(:created_at).count.values
   end
 
   def ec_filter
