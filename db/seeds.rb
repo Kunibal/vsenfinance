@@ -155,10 +155,10 @@ Post.create!(
     )
 
 # 店内用の売上情報
-30.times do |index|
-    Revenue.create!(
-        amount: Faker::Number.between(from: 15000, to: 40000),
-        head_count: Faker::Number.between(from: 10, to: 40),
-        created_at: Faker::Date.between(from: '2022-03-01', to: '2022-04-01')
-        )
-end
+# 30.times do |index|
+#     Revenue.create!(
+#         amount: Faker::Number.between(from: 15000, to: 40000),
+#         head_count: Faker::Number.between(from: 10, to: 40),
+#         created_at: Faker::Date.between(from: '2022-03-01', to: '2022-04-01')
+#         )
+# end
