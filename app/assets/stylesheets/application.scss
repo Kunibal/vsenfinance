@@ -185,7 +185,7 @@ header {
 
     position: absolute;
     z-index: 9999;
-    background: url('menu-icon.svg');
+    background: image-url('menu-icon.svg');
     background-repeat: no-repeat;
     width: 2rem;
     border: 0;
@@ -195,7 +195,7 @@ header {
   }
 
   .mobile-nav-toggle[aria-expanded="true"] {
-    background: url('close-icon.svg');
+    background: image-url('close-icon.svg');
     background-repeat: no-repeat;
   }
 }
@@ -310,15 +310,15 @@ footer {
 // slideshow用
 
 .image1 {
-  background-image: url("cupcake1.jpg");
+  background-image: image-url("cupcake1.jpg");
 }
 
 .image2 {
-  background-image: url("cupcake2.jpg");
+  background-image: image-url("cupcake2.jpg");
 }
 
 .image3 {
-  background-image: url("cupcake3.jpg");
+  background-image: image-url("cupcake3.jpg");
 }
 
 #container {
