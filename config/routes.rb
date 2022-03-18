@@ -17,7 +17,9 @@ Rails.application.routes.draw do
 
   root to: 'homes#top'
   get '/about', to: 'homes#about', as: 'about'
-  get '/contact', to: 'homes#contact', as: 'contact'
+
+  # 問い合わせ用
+  resources :contacts, only: [:new, :create]
 
   # お知らせ用のroutes
   resources :posts, only: [:create, :index, :edit, :update, :destroy]
