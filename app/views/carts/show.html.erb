@@ -32,12 +32,12 @@
                     <span class="fontsize-300"><%= order_item.quantity %>個　</span>
                     <span class="mx-1">
                       <%= link_to order_item_add_path(:id => order_item), method: :post, class: 'btn-grad small-btn' do %>
-                        <i class="fa-solid fa-circle-up"></i>
+                        <i class="fas fa-chevron-circle-up"></i>
                       <% end %>
                     </span>
                     <span class="mx-1">
                       <%= link_to order_item_reduce_path(:id => order_item), method: :post, class: 'btn-grad small-btn' do %>
-                        <i class="fa-solid fa-circle-down"></i>
+                        <i class="fas fa-chevron-circle-down"></i>
                       <% end %>
                     </span>
                   </div>

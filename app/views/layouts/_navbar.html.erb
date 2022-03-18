@@ -44,7 +44,7 @@
       </li>
       <li>
         <%= link_to cart_path(@current_cart), class: "text-white #{'bold-text' if current_page?(cart_path(@current_cart))}" do %>
-          <%= @current_cart.order_items.sum(:quantity) %> <i class="fa-solid fa-cart-shopping"></i>
+          <%= @current_cart.order_items.sum(:quantity) %> <i class="fas fa-shopping-cart"></i>
         <% end %>
       </li>
       <!--responsive対応：35emと45emの間にはIconを表示-->
