@@ -12,9 +12,6 @@ class HomesController < ApplicationController
   def about
   end
 
-  def contact
-  end
-
   def dashboard
     # お知らせ用
     @posts = Post.order(created_at: :desc).limit(4)

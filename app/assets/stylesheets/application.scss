@@ -140,6 +140,18 @@ header {
   text-decoration: none;
 }
 
+.round-bg {
+  display: inline-block;
+  align-items: center;
+  text-align: center;
+  width: 22px;
+  height: 22px;
+  background-color: #fff;
+  background-position: center;
+  color: #000;
+  border-radius: 50%;
+}
+
 .bold-text {
   font-weight: bold;
 }

@@ -6,12 +6,14 @@
         <%= image_tag("abbeybaby_wh.png", size: "70x70") %>
       </div>
       <ul class="list1">
-        <li class="fontweight-700">Links</li>
         <li>
           <%= link_to "Home", root_path, class: 'text-decoration-none text-white' %>
         </li>
         <li>
           <%= link_to "About", about_path, class: 'text-decoration-none text-white' %>
+        </li>
+        <li>
+          <%= link_to "お問い合わせ", new_contact_path, class: 'text-decoration-none text-white' %>
         </li>
       </ul>
     </div>
