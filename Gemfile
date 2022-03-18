@@ -66,8 +66,12 @@ gem 'jp_prefecture'
 # ページネーション
 gem 'kaminari'
 
+# グラフ用
 gem "chartkick"
 gem "groupdate"
+
+# 問い合わせ機能用
+gem 'mail_form'
 
 gem 'dotenv-rails'
 group :production do
