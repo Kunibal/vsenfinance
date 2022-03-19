@@ -39,7 +39,7 @@
       <!--店内売上表-->
       <div>
         <div class="flex flex-column m-auto mb-4">
-          <h3>注文履歴</h3>
+          <h3>売上表</h3>
           <table class="table">
             <thead>
               <tr>
@@ -61,6 +61,9 @@
             <%= link_to_prev_page @revenues, '前へ', class: 'btn-grad small-btn me-1' %>
             <%= link_to_next_page @revenues, '次へ', class: 'btn-grad small-btn ms-1' %>
           </span>
+          <div>
+            <%= link_to 'PDFとして保存', download_path, :target => '_blank', class: 'btn-grad small-btn' %>
+          </div>
         </div>
       </div>
 

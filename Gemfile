@@ -73,6 +73,9 @@ gem "groupdate"
 # 問い合わせ機能用
 gem 'mail_form'
 
+# PDF化用
+gem 'grover'
+
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'

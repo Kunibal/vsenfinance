@@ -47,4 +47,6 @@ Rails.application.routes.draw do
   # グラフをデータによって変更（JSを使用）
   get 'ec_filter', to: 'revenues#ec_filter', as: 'ec_filter'
   get 'store_filter', to: 'revenues#store_filter', as: 'store_filter'
+  # PDFをダウンロードするため
+  get 'download', to: 'revenues#download', as: 'download'
 end
