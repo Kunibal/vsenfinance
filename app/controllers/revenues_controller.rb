@@ -15,14 +15,13 @@ class RevenuesController < ApplicationController
 
   # PDF化してダウンロード
   def download
-    html_string = render_to_string(
-      {
+    html = render_to_string({
         layout: 'pdf',
         template: 'revenues/download.html.erb',
         locals: { :@revenues => Revenue.order(created_at: :desc).limit(31) }
       })
 
-    pdf = Grover.new(html_string, format: 'A4').to_pdf
+    pdf = Grover.new(html).to_pdf
 
     send_data(pdf,  filename: "#{Date.today}_売上.pdf",
                     type: 'application/pdf',

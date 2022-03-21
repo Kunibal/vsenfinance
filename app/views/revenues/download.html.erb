@@ -1,17 +1,18 @@
+<!--日本語化はまだです-->
 <div class="container">
   <div class="flex flex-column align-items-center my-5">
 
     <div>
       <div class="flex flex-column m-auto mb-4">
-        <h3>売上表</h3>
+        <h3>Revenue</h3>
         <table class="table">
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">入力日</th>
-              <th scope="col">売上</th>
-              <th scope="col">来客数</th>
-              <th scope="col">メモ</th>
+              <th scope="col">Date</th>
+              <th scope="col">Revenue</th>
+              <th scope="col">Customers</th>
+              <th scope="col">Memo</th>
               <th></th>
             </tr>
           </thead>
@@ -21,7 +22,7 @@
             <tr id="rev-<%= revenue.id %>">
               <th scope="row"><%= revenue.id %></th>
               <td><%= revenue.created_at.strftime('%Y/%m/%d') %></td>
-              <td><%= revenue.amount %>円</td>
+              <td><%= (revenue.amount).to_s(:delimited) %></td>
               <td class="text-center"><%= revenue.head_count %></td>
               <td colspan="2" class="fontweight-700"><%= revenue.memo %></td>
             </tr>
