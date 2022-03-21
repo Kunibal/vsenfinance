@@ -13,6 +13,21 @@ class RevenuesController < ApplicationController
     @monthly_revenue = Revenue.where(created_at: start_date_m..end_date_m).group_by_month(:created_at).sum(:amount).values
   end
 
+  # PDF化してダウンロード
+  def download
+    html = render_to_string({
+        layout: 'pdf',
+        template: 'revenues/download.html.erb',
+        locals: { :@revenues => Revenue.order(created_at: :desc).limit(31) }
+      })
+
+    pdf = Grover.new(html).to_pdf
+
+    send_data(pdf,  filename: "#{Date.today}_売上.pdf",
+                    type: 'application/pdf',
+                    disposition: 'attachment')
+  end
+
   def store_filter
     # 月間売上
     end_date_m = Date.today.beginning_of_month.next_month
