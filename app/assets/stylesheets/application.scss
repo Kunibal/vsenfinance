@@ -17,6 +17,7 @@
 
 // NavBarが出ないように
 body {
+  background: rgb(251, 250, 245);
   margin: 0;
   overflow-x: hidden;
 
@@ -73,7 +74,7 @@ body {
 .login-box .user-box input {
   width: 100%;
   font-size: 16px;
-  color: #fff;
+  color: rgb(251, 250, 245);
   margin-bottom: 30px;
   border: none;
   border-bottom: 1px solid #fff;
@@ -83,7 +84,7 @@ body {
 
 .login-box .user-box label {
   font-size: 16px;
-  color: #fff;
+  color: rgb(251, 250, 245);
   pointer-events: none;
 }
 
@@ -250,7 +251,7 @@ header {
 
 footer {
   background: #232526;
-  color: #fff;
+  color: rgb(251, 250, 245);
 
   // stick footer to bottom
   margin-top: auto;
@@ -275,24 +276,16 @@ footer {
 
 // social media color design
 .insta {
-  color: transparent;
-  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-  background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-  background-clip: text;
-  -webkit-background-clip: text;
+  color: rgb(251, 250, 245);
  }
 
-// keep design while hovering
+// keep design while hovering color: rgb(251, 250, 245);
 .insta:hover {
-  color: transparent;
-  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-  background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-  background-clip: text;
-  -webkit-background-clip: text;
+  color: rgb(251, 250, 245);
  }
 
  .twitter {
-   color: #00aced;
+   color: rgb(251, 250, 245);
  }
 
  .list1 {
@@ -411,14 +404,14 @@ footer {
   text-decoration: none;
   transition: 0.5s;
   background-size: 200% auto;
-  color: white;
+  color: rgb(251, 250, 245);
   box-shadow: 0 0 20px #eee;
   border-radius: 6px;
 }
 
 .btn-grad:hover {
   background-position: right center; /* change the direction of the change here */
-  color: #fff;
+  color: rgb(251, 250, 245);
   text-decoration: none;
 }
 
@@ -435,7 +428,7 @@ footer {
 
 .btn-del:hover {
   background-color: #e52d27;
-  color: #fff;
+  color: rgb(251, 250, 245);
   text-decoration: none;
 }
 
