@@ -58,6 +58,36 @@ Customer.create!(
     password_confirmation: 'password'
     )
 
+Customer.create!(
+    email: 'yamaguchi@zwitter.com',
+    last_name: '山口',
+    first_name: '店長',
+    last_name_kana: 'ヤマグチ',
+    first_name_kana: 'テンチョウ',
+    postal_code: '0300111',
+    prefecture_code: 2,
+    city: '青森市荒川',
+    block: '二丁目',
+    building_name: 'カラカラビル',
+    password: 'password',
+    password_confirmation: 'password'
+    )
+
+Customer.create!(
+    email: 'yamagata@headbook.com',
+    last_name: '山形',
+    first_name: '店長',
+    last_name_kana: 'ヤマガタ',
+    first_name_kana: 'テンチョウ',
+    postal_code: '0300111',
+    prefecture_code: 2,
+    city: '青森市荒川',
+    block: '二丁目',
+    building_name: 'カラカラビル',
+    password: 'password',
+    password_confirmation: 'password'
+    )
+
     # 商品一覧
 Item.destroy_all
 cake1 = Item.new(
@@ -108,57 +138,61 @@ Post.destroy_all
 Post.create!(
     title: 'グランドオープニング',
     body: '本日より開店いたします。是非、足をお運び頂ければ幸いです。',
-    created_at: "2022-01-08 09:08:04.717419000 +0000",
-    updated_at: "2022-01-08 09:18:04.717419000 +0000"
+    created_at: "2022-02-01 09:08:04.717419000 +0000",
     )
 
 Post.create!(
     title: '臨時休業のおしらせ',
     body: '都合により、○月○日はお休みいたします。',
-    created_at: "2022-01-12 09:08:04.717419000 +0000",
-    updated_at: "2022-01-12 09:18:04.717419000 +0000"
+    created_at: "2022-02-04 09:08:04.717419000 +0000",
     )
 
 Post.create!(
     title: '新商品のお知らせ',
     body: '新商品「クラウンケーキ」をぜひご賞味ください。',
-    created_at: "2022-01-18 09:08:04.717419000 +0000",
-    updated_at: "2022-01-18 09:18:04.717419000 +0000"
+    created_at: "2022-02-15 09:08:04.717419000 +0000",
     )
 
 Post.create!(
     title: '短縮営業のお知らせ',
     body: '○月○日〜○月○日まで、営業時間を●時〜●時といたします。ご了承ください。',
-    created_at: "2022-01-28 09:08:04.717419000 +0000",
-    updated_at: "2022-01-28 09:18:04.717419000 +0000"
+    created_at: "2022-02-24 09:08:04.717419000 +0000",
     )
 
 Post.create!(
     title: '新商品のお知らせ',
     body: '新商品「プリンスケーキ」をぜひご賞味ください。',
-    created_at: "2022-02-03 09:08:04.717419000 +0000",
-    updated_at: "2022-02-03 09:18:04.717419000 +0000"
+    created_at: "2022-03-04 09:08:04.717419000 +0000",
     )
 
 Post.create!(
     title: '臨時休業のお知らせ',
     body: '都合により、○月○日はお休みいたします。',
-    created_at: "2022-02-19 09:08:04.717419000 +0000",
-    updated_at: "2022-02-19 09:18:04.717419000 +0000"
+    created_at: "2022-03-14 09:08:04.717419000 +0000",
     )
 
 Post.create!(
     title: '新商品のお知らせ',
     body: '新商品「プリンスぷりん」をぜひご賞味ください。',
-    created_at: "2022-02-27 09:08:04.717419000 +0000",
-    updated_at: "2022-02-27 09:18:04.717419000 +0000"
+    created_at: "2022-03-23 09:08:04.717419000 +0000",
     )
 
 # 店内用の売上情報
-# 30.times do |index|
-#     Revenue.create!(
-#         amount: Faker::Number.between(from: 15000, to: 40000),
-#         head_count: Faker::Number.between(from: 10, to: 40),
-#         created_at: Faker::Date.between(from: '2022-03-01', to: '2022-04-01')
-#         )
-# end
+320.times do |index|
+    Revenue.create!(
+        amount: rand(15000..35000),
+        head_count: rand(10..40),
+        created_at: rand(Date.today.beginning_of_year..Date.today.end_of_year)
+        )
+end
+
+320.times do |index|
+    Order.create!(
+        customer_id: 1,
+        order_price: rand(1500..6500),
+        customer_name: "田中店長",
+        customer_address: "9900034山形県山形市東原町二丁目",
+        payment_method: 0,
+        created_at: rand(Date.today.beginning_of_year..Date.today.end_of_year)
+        )
+end
