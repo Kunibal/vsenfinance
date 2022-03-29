@@ -66,8 +66,8 @@ Rails.application.configure do
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  config.action_mailer_default_url_options = { host: 'http://54.199.189.144/' }
-  Rails.application.routes.default_url_options[:host] = 'http://54.199.189.144/'
+  config.action_mailer_default_url_options = { host: 'http://35.78.76.101/' }
+  Rails.application.routes.default_url_options[:host] = 'http://35.78.76.101/'
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
