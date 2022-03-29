@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   before_action :ensure_correct_user, only: [:show]
 
   def index
-    @orders = Order.all
+    @orders = Order.order(created_at: :desc).page params[:page]
   end
 
   def show

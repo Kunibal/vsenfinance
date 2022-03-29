@@ -7,6 +7,8 @@ class Item < ApplicationRecord
 
   has_one_attached :image
 
+  paginates_per 8
+
   def item_image
     image.attached? ? image : 'no_image.jpg'
   end

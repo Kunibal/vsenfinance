@@ -39,6 +39,10 @@
     <% end %>
   </tbody>
 </table>
+  <span>
+    <%= link_to_prev_page @orders, '前へ', class: 'btn-grad small-btn me-1' %>
+    <%= link_to_next_page @orders, '次へ', class: 'btn-grad small-btn ms-1' %>
+  </span>
 <% if current_admin %>
   <div>
     <%= link_to "戻る", :back, class: 'btn-grad' %>

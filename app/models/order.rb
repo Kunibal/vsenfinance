@@ -6,6 +6,8 @@ class Order < ApplicationRecord
   validates :customer_name, presence: true
   validates :customer_address, presence: true
 
+  paginates_per 10
+
   # グラフのための情報収集
   # 期間を決めるため
   scope :for_date_range, -> (start_date, end_date) do

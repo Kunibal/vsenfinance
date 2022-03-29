@@ -8,7 +8,7 @@ class CustomersController < ApplicationController
   end
 
   def show
-    @orders = @customer.orders.all
+    @orders = @customer.orders.order(created_at: :desc).page params[:page]
   end
 
   def edit

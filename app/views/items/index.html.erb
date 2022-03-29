@@ -32,6 +32,9 @@
 <div class="container my-4">
   <div class="col-10 flex justify-content-between m-auto">
     <%= link_to "HOMEへ戻る", root_path, class: 'btn-grad' %>
-    <div class="btn-grad">次のページへ</div>
+    <span>
+      <%= link_to_prev_page @items, '前へ', class: 'btn-grad small-btn me-1' %>
+      <%= link_to_next_page @items, '次へ', class: 'btn-grad small-btn ms-1' %>
+    </span>
   </div>
 </div>
