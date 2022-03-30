@@ -11,6 +11,7 @@ class RevenuesController < ApplicationController
     @chartdata = zero_filled_m_date_range.merge(Revenue.where(created_at: start_date_m..end_date_m).group_by_day(:created_at).sum(:amount))
 
     @monthly_revenue = Revenue.where(created_at: start_date_m..end_date_m).group_by_month(:created_at).sum(:amount).values
+    @monthly_head_count = Revenue.where(created_at: start_date_m..end_date_m).group_by_month(:created_at).sum(:head_count).values
   end
 
   # PDF化してダウンロード

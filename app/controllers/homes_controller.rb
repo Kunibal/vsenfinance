@@ -9,9 +9,6 @@ class HomesController < ApplicationController
     @posts = Post.order(created_at: :desc).limit(6)
   end
 
-  def about
-  end
-
   def dashboard
     # お知らせ用
     @posts = Post.order(created_at: :desc).limit(4)
