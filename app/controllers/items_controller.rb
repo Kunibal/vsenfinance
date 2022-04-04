@@ -12,15 +12,17 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
-    if @item.save
-      redirect_to @item
-    else
-      render :new
+    item = Item.new(item_params)
+    item.save
+    tags = Vision.get_image_data(item.image)
+    tags.each do |tag|
+      item.tags.create(name: tag)
     end
+    redirect_to item_path(item.id)
   end
 
   def show
+    @tags = Tag.all
   end
 
   def edit
@@ -43,7 +45,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :price, :image)
+    params.require(:item).permit(:name, :description, :price, :tag, :image)
   end
 
   def set_item

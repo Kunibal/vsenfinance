@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   has_many :order_items, dependent: :destroy
+  has_many :tags, dependent: :destroy
 
   validates :name, presence: true
   validates :description, presence: true
