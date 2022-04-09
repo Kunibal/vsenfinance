@@ -5,13 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+Admin.destroy_all
 Admin.create!(
     email: 'admin@vsen.com',
     password: '123456',
     password_confirmation: '123456'
     )
 
+Customer.destroy_all
     # 会員一覧
 Customer.create!(
     email: 'tanaka@example.com',
@@ -177,6 +178,7 @@ Post.create!(
     created_at: "2022-03-23 09:08:04.717419000 +0000",
     )
 
+Revenue.destroy_all
 # 店内用の売上情報
 320.times do |index|
     Revenue.create!(
@@ -186,6 +188,7 @@ Post.create!(
         )
 end
 
+Order.destroy_all
 320.times do |index|
     Order.create!(
         customer_id: 1,
