@@ -17,14 +17,16 @@
             <span class="fontweight-700">商品説明　</span>
             <div><%= @item.description %></div>
           </p>
-          <p>
-            <span class="fontweight-700">タグ　</span>
-            <div>
-              <% @tags.each do |tag| %>
-                <%= tag.name %>
-              <% end %>
-            </div>
-          </p>
+          <% if current_admin %>
+            <p>
+              <span class="fontweight-700">タグ　</span>
+              <div>
+                <% @tags.each do |tag| %>
+                  <%= tag.name %>
+                <% end %>
+              </div>
+            </p>
+          <% end %>
           <%= button_to "カートに入れる", order_items_path(:item_id => @item.id), class: 'btn-grad' %>
         </div>
       </div>

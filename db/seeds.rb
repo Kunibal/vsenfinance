@@ -15,6 +15,7 @@ Admin.create!(
 Customer.destroy_all
     # 会員一覧
 Customer.create!(
+    id: 1,
     email: 'tanaka@example.com',
     last_name: '田中',
     first_name: '店長',
@@ -30,6 +31,7 @@ Customer.create!(
     )
 
 Customer.create!(
+    id: 2,
     email: 'yamada@yafoo.com',
     last_name: '山田',
     first_name: '店長',
@@ -45,6 +47,7 @@ Customer.create!(
     )
 
 Customer.create!(
+    id: 3,
     email: 'yamamoto@qmail.com',
     last_name: '山本',
     first_name: '店長',
@@ -60,6 +63,7 @@ Customer.create!(
     )
 
 Customer.create!(
+    id: 4,
     email: 'yamaguchi@zwitter.com',
     last_name: '山口',
     first_name: '店長',
@@ -75,6 +79,7 @@ Customer.create!(
     )
 
 Customer.create!(
+    id: 5,
     email: 'yamagata@headbook.com',
     last_name: '山形',
     first_name: '店長',
@@ -191,7 +196,7 @@ end
 Order.destroy_all
 320.times do |index|
     Order.create!(
-        customer_id: 1,
+        customer_id: rand(1..5),
         order_price: rand(1500..6500),
         customer_name: "田中店長",
         customer_address: "9900034山形県山形市東原町二丁目",
