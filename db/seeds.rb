@@ -194,12 +194,45 @@ Revenue.destroy_all
 end
 
 Order.destroy_all
-320.times do |index|
+120.times do |index|
     Order.create!(
-        customer_id: rand(1..5),
+        customer_id: 1,
         order_price: rand(1500..6500),
         customer_name: "田中店長",
         customer_address: "9900034山形県山形市東原町二丁目",
+        payment_method: 0,
+        created_at: rand(Date.today.beginning_of_year..Date.today.end_of_year)
+        )
+end
+
+120.times do |index|
+    Order.create!(
+        customer_id: 2,
+        order_price: rand(1500..6500),
+        customer_name: "山田店長",
+        customer_address: "9800004仙台市青葉区宮町二丁目",
+        payment_method: 0,
+        created_at: rand(Date.today.beginning_of_year..Date.today.end_of_year)
+        )
+end
+
+120.times do |index|
+    Order.create!(
+        customer_id: 3,
+        order_price: rand(1500..6500),
+        customer_name: "山本店長",
+        customer_address: "0300111青森市荒川二丁目",
+        payment_method: 0,
+        created_at: rand(Date.today.beginning_of_year..Date.today.end_of_year)
+        )
+end
+
+90.times do |index|
+    Order.create!(
+        customer_id: 4,
+        order_price: rand(1500..6500),
+        customer_name: "山口店長",
+        customer_address: "0300111青森市荒川二丁目",
         payment_method: 0,
         created_at: rand(Date.today.beginning_of_year..Date.today.end_of_year)
         )
