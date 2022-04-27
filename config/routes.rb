@@ -9,13 +9,14 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
+
+  root to: 'homes#top'
+
   # PFのホームページ
   get 'homes/homepage'
 
   get 'admin/dashboard', to: 'homes#dashboard', as: 'dashboard'
 
-  root to: 'homes#top'
-  get '/about', to: 'homes#about', as: 'about'
 
   # 問い合わせ用
   resources :contacts, only: [:new, :create]
