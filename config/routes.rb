@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   # PFのホームページ
   get 'homes/homepage'
 
-
   get 'admin/dashboard', to: 'homes#dashboard', as: 'dashboard'
 
   root to: 'homes#top'
@@ -28,18 +27,17 @@ Rails.application.routes.draw do
   get 'carts/:id', to: "carts#show", as: "cart"
   delete 'carts/:id', to: "carts#destroy"
 
-  # order_items用のroutes
-  post 'order_items', to: 'order_items#create'
-  get 'order_items/:id', to: 'order_items#show', as: 'order_item'
-  delete 'order_items/:id', to: 'order_items#destroy'
-  post 'order_items/:id/add', to: 'order_items#add_quantity', as: 'order_item_add'
-  post 'order_items/:id/reduce', to: 'order_items#reduce_quantity', as: 'order_item_reduce'
 
   resources :customers, only: [:index, :show, :edit, :update]
   resources :items
   resources :orders, only: [:new, :create, :index, :show]
   get 'confirm_order', to: 'orders#confirm_order', as: 'confirm_order'
   get 'complete_order', to: 'orders#complete_order', as: 'complete_order'
+
+  # order_items用のroutes
+  resources :order_items, only: [:create, :show, :destroy]
+  post 'order_items/:id/add', to: 'order_items#add_quantity', as: 'order_item_add'
+  post 'order_items/:id/reduce', to: 'order_items#reduce_quantity', as: 'order_item_reduce'
 
   # 店内用の情報
   resources :revenues, only: [:index, :create, :destroy]
