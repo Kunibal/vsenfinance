@@ -31,7 +31,10 @@ Rails.application.routes.draw do
 
   resources :customers, only: [:index, :show, :edit, :update]
   resources :items
+
+  # order用のroutes
   resources :orders, only: [:new, :create, :index, :show]
+  get 'admin/orders/:id', to: 'orders#show_order', as: 'admin_order'
   get 'confirm_order', to: 'orders#confirm_order', as: 'confirm_order'
   get 'complete_order', to: 'orders#complete_order', as: 'complete_order'
 

@@ -25,11 +25,10 @@ class ApplicationController < ActionController::Base
 
   # current customerとadminに許可与える
   def ensure_correct_user
-    @customer = current_customer
+    @customer = Customer.find(params[:id])
     # 管理者は常に一人
-    @admin = current_admin
-    if @customer || @admin
-    else
+    @admin = Admin.find(1)
+    unless @customer == current_customer || @admin == current_admin
       redirect_to root_path
     end
   end

@@ -1,13 +1,16 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_customer!, only: [:new, :create, :confirm_order, :complete_order]
-  before_action :authenticate_admin!, only: [:index]
-  before_action :ensure_correct_user, only: [:show]
+  before_action :authenticate_customer!, only: [:show, :new, :create, :confirm_order, :complete_order]
+  before_action :authenticate_admin!, only: [:show_order, :index]
 
   def index
     @orders = Order.order(created_at: :desc).page params[:page]
   end
 
   def show
+    @order = Order.find(params[:id])
+  end
+
+  def show_order
     @order = Order.find(params[:id])
   end
 

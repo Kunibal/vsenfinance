@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Admin.destroy_all
 Admin.create!(
+    id: 1,
     email: 'admin@vsen.com',
     password: '123456',
     password_confirmation: '123456'

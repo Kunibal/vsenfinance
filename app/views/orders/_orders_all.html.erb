@@ -34,7 +34,11 @@
         <td><%= order.created_at.strftime("%Y/%m/%d") %></td>
         <td><%= order.customer_name %></td>
         <td><%= order.order_price.to_s(:delimited) %>円</td>
-        <td><%= link_to "詳細", order_path(order), class: 'btn-grad small-btn' %></td>
+        <% if current_customer %>
+          <td><%= link_to "詳細", order_path(order), class: 'btn-grad small-btn' %></td>
+        <% else %>
+          <td><%= link_to "詳細", admin_order_path(order), class: 'btn-grad small-btn' %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
