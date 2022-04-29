@@ -1,15 +1,16 @@
 <div class="container my-5">
   <div class="row d-flex justify-content-center">
-    <div class="col-8">
+    <% if @current_cart.order_items.exists? %>
+    <div class="col-6">
       <table class="table">
       <!--テーブル一番目のRow-->
       <thead>
         <tr>
           <th scope="col">商品</th>
-          <th scope="col">単価(税込)</th>
-          <th scope="col">数量</th>
-          <th scope="col">小計</th>
-          <th></th>
+          <th scope="col" class="text-end">単価(税込)</th>
+          <th scope="col" class="text-end">数量</th>
+          <th scope="col" class="text-end">小計</th>
+          <th colspan="4"></th>
         </tr>
       </thead>
       <!--テーブルのボディー-->
@@ -17,14 +18,14 @@
         <% @current_cart.order_items.each do |item| %>
           <tr scope="row">
             <td><%= item.item.name %></td>
-            <td> <%= item.item.add_tax %>円</td>
-            <td>
+            <td class="text-end"><%= item.item.add_tax %>円</td>
+            <td class="text-end">
               <div>
                 <span class="fontsize-300"><%= item.quantity %>個</span>
               </div>
             </td>
-            <td><%= item.subtotal.to_s(:delimited) %>円</td>
-            <td></td>
+            <td class="text-end"><%= item.subtotal.to_s(:delimited) %>円</td>
+            <td colspan="4" class="text-center"><%= link_to "削除", delete_order_item_path(item), method: :delete, class: 'btn-del small-btn' %></td>
           </tr>
         <% end %>
         </tbody>
@@ -33,7 +34,7 @@
   </div>
 
   <div class="row d-flex justify-content-center">
-    <div class="col-8 d-flex justify-content-between">
+    <div class="col-6 d-flex justify-content-between">
       <div class="offset-1"></div>
       <div class="border-bottom border-dark fontweight-700 fontsize-300">合計　<%= @current_cart.total_price.to_s(:delimited) %>円</div>
     </div>
@@ -48,8 +49,16 @@
           <%= f.hidden_field :order_price %>
           <%= f.submit "注文する", class: 'btn-grad small-btn' %>
         <% end %>
+        <div class="mt-4">
+          <%= link_to "戻る", new_order_path, class: 'btn-grad small-btn' %>
+        </div>
       </div>
     </div>
+    <% else %>
+      <h1>ショッピングカートは空です。</h1>
+      <div class="fontsize-300 fontweight-700 mt-4">
+        商品一覧は　<%= link_to "こちら", items_path, class: 'btn-grad small-btn' %>　です。
+      </div>
+    <% end %>
   </div>
-
 </div>

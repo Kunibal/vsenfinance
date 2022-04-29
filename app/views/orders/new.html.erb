@@ -21,8 +21,14 @@
           </p>
         </div>
       </div>
-      <%= f.submit '確認画面へ進む', class: 'btn-grad small-btn my-3' %>
+      <%= f.submit '確認画面へ進む', class: 'btn-grad my-3' %>
       <% end %>
+      <div>
+        <div>
+          <%= link_to "戻る", :back, class: 'btn-grad small-btn' %>
+          <%= link_to "買い物を続ける", items_path, class: 'btn-grad small-btn' %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

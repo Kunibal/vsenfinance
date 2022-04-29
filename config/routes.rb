@@ -28,7 +28,6 @@ Rails.application.routes.draw do
   get 'carts/:id', to: "carts#show", as: "cart"
   delete 'carts/:id', to: "carts#destroy"
 
-
   resources :customers, only: [:index, :show, :edit, :update]
   resources :items
 
@@ -36,6 +35,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:new, :create, :index, :show]
   get 'admin/orders/:id', to: 'orders#show_order', as: 'admin_order'
   get 'confirm_order', to: 'orders#confirm_order', as: 'confirm_order'
+  delete 'confirm_order/:id', to: 'order_items#destroy', as: 'delete_order_item'
   get 'complete_order', to: 'orders#complete_order', as: 'complete_order'
 
   # order_items用のroutes

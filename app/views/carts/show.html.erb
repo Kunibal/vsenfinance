@@ -15,9 +15,9 @@
           <thead>
             <tr>
               <th scope="col">商品</th>
-              <th scope="col">単価(税込)</th>
-              <th scope="col">数量</th>
-              <th scope="col">小計</th>
+              <th scope="col" class="text-end">単価(税込)</th>
+              <th scope="col" class="text-center">数量</th>
+              <th scope="col" class="text-end">小計</th>
               <th></th>
             </tr>
           </thead>
@@ -26,8 +26,8 @@
             <% @cart.order_items.each do |order_item| %>
               <tr scope="row">
                 <td><%= order_item.item.name %></td>
-                <td><%= order_item.item.add_tax %>円</td>
-                <td>
+                <td class="text-end"><%= order_item.item.add_tax %>円</td>
+                <td class="text-end">
                   <div>
                     <span class="fontsize-300"><%= order_item.quantity %>個　</span>
                     <span class="mx-1">
@@ -42,7 +42,7 @@
                     </span>
                   </div>
                 </td>
-                <td><%= order_item.subtotal.to_s(:delimited) %>円</td>
+                <td class="text-end"><%= order_item.subtotal.to_s(:delimited) %>円</td>
                 <td><%= link_to "削除", order_item_path(order_item), method: :delete, class: 'btn-del small-btn' %></td>
               </tr>
             <% end %>
