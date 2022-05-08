@@ -12,11 +12,7 @@ Rails.application.routes.draw do
 
   root to: 'homes#top'
 
-  # PFのホームページ
-  get 'homes/homepage'
-
   get 'admin/dashboard', to: 'homes#dashboard', as: 'dashboard'
-
 
   # 問い合わせ用
   resources :contacts, only: [:new, :create]
