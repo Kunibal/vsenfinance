@@ -76,6 +76,8 @@ gem 'mail_form'
 # PDF化用
 gem 'grover'
 
+gem 'whenever', '~> 1.0'
+
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
