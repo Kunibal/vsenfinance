@@ -24,6 +24,9 @@
 エンドユーザー側：ECサイトでの購入。
 
 ### 設計書
+https://docs.google.com/spreadsheets/d/1cOWTaZ5ZXO-MWR1MQ-6RqdA9f40FjHdbhKbmYAKhP_8/edit?usp=sharing
+
+![VSEN_wireframework](https://user-images.githubusercontent.com/83770672/167529866-3cc5e841-37f7-487c-ae21-9226e47e45d6.jpg)
 
 
 ### チャレンジ要素一覧
