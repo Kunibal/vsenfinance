@@ -13,7 +13,7 @@
 #   rake "some:great:rake:task"
 # end
 #
-every :hour do
+every 1.hour do
   rake "db:seed"
 end
 
