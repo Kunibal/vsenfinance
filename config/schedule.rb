@@ -13,8 +13,9 @@
 #   rake "some:great:rake:task"
 # end
 #
-every 1.hour do
-  rake "db:seed"
-end
 
 # Learn more: http://github.com/javan/whenever
+
+every 50.minutes do
+  rake "db:seed"
+end

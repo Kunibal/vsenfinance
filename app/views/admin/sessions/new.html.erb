@@ -18,4 +18,17 @@
       </div>
     <% end %>
   </div>
+
+  <div class="ms-3">
+    <div class="fontweight-700">
+      <p><i>このアプリはプログラミングスクールで作った作品です。</i></p>
+      <p><i>そのため、データベースを一時間毎にリセットさせていただいております。</i></p>
+      <p><i>サイトをご覧いただけるよう、こちらのログインメールとパスワードをご使用ください。</i></p>
+      <p><i>コピーするため、直接メールやパスワードにクリックしてください。</i></p>
+      <p>メール：<span id="mailToCopy">admin@vsen.com</span></p>
+      <p>パスワード：<span id="passwordToCopy">123456</span></p>
+    </div>
+  </div>
 </div>
+
+<%= javascript_pack_tag 'copy_to_clipboard' %>

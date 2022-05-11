@@ -8,8 +8,8 @@
       <% @posts.each do |post| %>
         <li class="list-group-item">
           <span class="fontweight-700"><%= post.created_at.strftime("%Y/%m/%d") %></span>
-          <%= post.title %>
-          <%= post.body %>
+          ・ <%= post.title %>
+          <p style="margin: 0;"><%= post.body %></p>
         </li>
       <% end %>
     </ul>
