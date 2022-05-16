@@ -42,7 +42,6 @@ body {
 
 .flex {
   display: flex;
-  // Use gap custom property to change at different sizes
   gap: var(--gap, 1rem);
 }
 
@@ -444,4 +443,27 @@ button, input[type="submit"], input[type="reset"] {
 
 .small-btn {
   padding: 0.25em 1em;
+}
+
+.textToCopy {
+  cursor: pointer;
+  position: relative;
+}
+
+.flash {
+    transition: 0.2s;
+    box-shadow: 0px 5px 5px black;
+}
+
+.flash::after {
+    content: "コピー✓";
+    border-radius: 4px;
+    position: absolute;
+    left: 95%;
+    top: -75%;
+    width: 4rem;
+    padding-inline: 0.5rem;
+    font-size: 0.7rem;
+    background-color: rgba(35, 37, 38, 0.75);
+    color: #fff;
 }
