@@ -1,3 +1,60 @@
 // Place all the styles related to the customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// Loginデザイン
+.login-box {
+  width: 400px;
+  padding: 40px;
+  background: rgba(0,0,0,.75);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  font-size: 16px;
+  color: rgb(251, 250, 245);
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+
+.login-box .user-box label {
+  font-size: 16px;
+  color: rgb(251, 250, 245);
+  pointer-events: none;
+}
+
+.textToCopy {
+  cursor: pointer;
+  position: relative;
+}
+
+.flash {
+    transition: 0.2s;
+    box-shadow: 0px 5px 5px black;
+}
+
+.flash::after {
+    content: "コピー✓";
+    border-radius: 4px;
+    position: absolute;
+    left: 95%;
+    top: -75%;
+    width: 4rem;
+    padding-inline: 0.5rem;
+    font-size: 0.7rem;
+    background-color: rgba(35, 37, 38, 0.75);
+    color: #fff;
+}

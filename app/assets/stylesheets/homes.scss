@@ -1,3 +1,83 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// slideshow用 (ROOT PAGE)
+
+.image1 {
+  background-image: image-url("cupcake1.jpg");
+}
+
+.image2 {
+  background-image: image-url("cupcake2.jpg");
+}
+
+.image3 {
+  background-image: image-url("cupcake3.jpg");
+}
+
+#container {
+  margin-top: 1em;
+  margin-inline: auto;
+  height: 65vh;
+  width: 90%;
+}
+
+.new-arrivals {
+  margin: auto;
+  width: 80%;
+  justify-content: space-around;
+}
+
+.news-box {
+  margin-top: 4em;
+  margin-inline: auto;
+}
+
+// topページの商品一覧ボタン
+.item-link {
+  margin-inline: auto;
+  width: 80%;
+}
+
+
+// admin dashboard
+  .graph-box1 {
+    min-height: 30vh;
+    width: 60vw;
+  }
+
+@media (min-width: 35em) and (max-width: 46em) {
+  .graph-box1 {
+    margin: auto;
+    min-height: 40vh;
+    width: 70vw;
+  }
+}
+
+@media (max-width: 35em) {
+  .graph-box1 {
+    position: relative;
+    margin: auto;
+    height: 30vh;
+    width: 80vw;
+  }
+}
+
+.graph-box2 {
+  width: 80vw;
+  min-height: 50vh;
+}
+
+.sidebar {
+  background: #232526;
+  width: 8em;
+  height: 12em;
+  border: 2px solid #232526;
+  border-radius: 4px;
+}
+.sidebar ul {
+  background: hsla(0, 0%, 100%, 0.1);
+  list-style: none;
+  padding: 0;
+}
